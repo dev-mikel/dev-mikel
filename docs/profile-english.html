@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Miguel Ladines">
+    <meta name="description" content="Miguel Ladines - IoT Solutions Architect and Embedded Hardware Engineer specializing in cloud-connected systems, AI infrastructure, and intelligent automation.">
+    <meta name="theme-color" content="#0a66c2">
+    <title>Miguel Ladines - IoT Solutions Architect</title>
+    <style>
+        :root {
+            --brand: #1E2A38;
+            --brand-light: #f3f5f8;
+            --text: #1a1f24;
+            --muted: #4b5563;
+            --bg: #ffffff;
+            --card: #f8fafc;
+            --border: #e5e7eb;
+            --link: #0a66c2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--brand-light);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--brand-light);
+            padding: 56px 0;
+            margin-bottom: 64px;
+            text-align: center;
+            border-bottom: 2px solid var(--border);
+        }
+
+        header .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-info h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--brand);
+            letter-spacing: -0.5px;
+        }
+
+        .header-info .title {
+            font-size: 18px;
+            color: var(--muted);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            justify-content: center;
+        }
+
+        .contact-links span {
+            color: var(--text);
+        }
+
+        .contact-links a {
+            color: var(--link);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .contact-links a:hover {
+            border-bottom-color: var(--link);
+        }
+
+        .lang-switch {
+            margin-top: 8px;
+        }
+
+        .lang-switch a {
+            color: var(--link);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 10px 20px;
+            border: 1.5px solid var(--link);
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+        }
+
+        .lang-switch a:hover {
+            background-color: rgba(10, 102, 194, 0.08);
+        }
+
+        /* Sections */
+        section {
+            background-color: var(--bg);
+            border-radius: 12px;
+            padding: 48px;
+            margin-bottom: 56px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border);
+        }
+
+        section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: var(--brand);
+            border-bottom: 3px solid var(--link);
+            padding-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        section p {
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            gap: 24px;
+        }
+
+        .about-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .about-content ul li {
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .about-content ul li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--link);
+            font-size: 18px;
+        }
+
+        /* Projects */
+        .project-card {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 28px;
+            margin-bottom: 24px;
+            background-color: var(--card);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--brand);
+        }
+
+        .project-card .project-meta {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .project-card p {
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .project-card .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tech-stack span {
+            background-color: var(--brand-light);
+            color: var(--brand);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            border: 1px solid var(--border);
+            font-weight: 500;
+        }
+
+        .project-link {
+            color: var(--link);
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 12px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Experience Timeline */
+        .experience-item {
+            border-left: 3px solid var(--link);
+            padding-left: 28px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .experience-item:before {
+            content: "";
+            width: 14px;
+            height: 14px;
+            background-color: var(--link);
+            border-radius: 50%;
+            position: absolute;
+            left: -8.5px;
+            top: 4px;
+            box-shadow: 0 0 0 4px var(--bg);
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-item h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--brand);
+        }
+
+        .experience-item .company {
+            font-size: 16px;
+            color: var(--muted);
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .experience-item .date {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .experience-item ul {
+            margin-left: 20px;
+            margin-top: 12px;
+        }
+
+        .experience-item ul li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        /* Education & Certifications */
+        .edu-item, .cert-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .edu-item:last-child, .cert-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .edu-item h3, .cert-item h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--brand);
+        }
+
+        .edu-item .meta, .cert-item .meta {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .tech-category {
+            padding: 20px;
+            background-color: var(--card);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .tech-category h3 {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--link);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tech-category p {
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        /* Languages */
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .lang-item:last-child {
+            border-bottom: none;
+        }
+
+        .lang-item strong {
+            font-weight: 600;
+            color: var(--brand);
+        }
+
+        .lang-item span {
+            color: var(--text);
+        }
+
+        /* Download CV */
+        .cv-download {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cv-download a {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--link);
+            color: var(--bg);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+            box-shadow: 0 2px 4px rgba(10, 102, 194, 0.2);
+        }
+
+        .cv-download a:hover {
+            background-color: #084a8f;
+            box-shadow: 0 4px 8px rgba(10, 102, 194, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--brand);
+            color: var(--brand-light);
+            padding: 40px 0;
+            margin-top: 64px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        footer .footer-links a {
+            color: var(--brand-light);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer .footer-links a:hover {
+            color: var(--link);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 28px;
+            }
+
+            header {
+                padding: 40px 0;
+            }
+
+            .header-info h1 {
+                font-size: 28px;
+            }
+
+            .header-info .title {
+                font-size: 16px;
+            }
+
+            section h2 {
+                font-size: 24px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- editable: header -->
+    <header>
+        <div class="container">
+            <div class="header-info">
+                <h1>Miguel Ladines</h1>
+                <p class="title">IoT Solutions Architect and Embedded Hardware Engineer</p>
+                <div class="contact-links">
+                    <span>📍 Daule, Ecuador</span>
+                    <a href="mailto:ladinesmiguel770@gmail.com">✉️ Email</a>
+                    <a href="https://linkedin.com/in/ladinesmiguel" target="_blank">💼 LinkedIn</a>
+                    <a href="https://github.com/dev-mikel" target="_blank">💻 GitHub</a>
+                </div>
+            </div>
+            <div class="lang-switch">
+                <a href="profile-spanish.html">🇪🇸 Versión en Español</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- editable: about -->
+        <section id="About">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>Electronics Engineer with multidisciplinary experience and skills, having worked professionally across industries such as IT consulting, corporate banking, scientific research, intelligent transportation infrastructure, and agricultural technology.</p>
+                
+                <p>Throughout my career, I have developed valuable capabilities in systems integration, automation, cloud infrastructure, and technological architecture, participating in projects where reliability, scalability, and interoperability are essential.</p>
+
+                <p>My approach combines cross-domain technical knowledge and systems thinking, enabling the integration of hardware, software, and cloud services into efficient, secure, and future-ready technological architectures.</p>
+
+                <p>Working in national and international contexts has taught me to value adaptability and technical coherence. I view technology as a living ecosystem, where innovation and stability must coexist, evolving in service of people and processes.</p>
+
+                <p><strong>What I Bring:</strong></p>
+                <ul>
+                    <li>System-level thinking: the ability to connect devices, data, and infrastructure into coherent, maintainable, and scalable ecosystems.</li>
+                    <li>Cross-domain experience: exposure to scientific, corporate, and operational environments that demand reliability, precision, and adaptability.</li>
+                    <li>Hands-on engineering mindset: from embedded design and data flow modeling to infrastructure management and process optimization.</li>
+                    <li>Analytical and pragmatic approach: focusing on traceability, efficiency, and measurable operational outcomes.</li>
+                    <li>Continuous evolution: expanding into data, backend, and AI-driven systems to deliver end-to-end technological value.</li>
+                </ul>              
+        </section>
+
+        <!-- editable: projects -->
+        <section id="projects">
+            <h2>Featured Projects</h2>
+
+            <div class="project-card">
+                <h3>Multi-Model AI Chatbot</h3>
+                <p class="project-meta">October 2025 | Personal Project → Commercial Infrastructure Demo</p>
+                <p>Researched, integrated, and deployed a secure and scalable AI chatbot infrastructure on Google Cloud Platform. Created a cost-effective AI assistant using OpenWebUI integrated with OpenRouter API, enabling multiple LLM providers under a unified white-label web interface operating under a pay-per-token model.</p>
+                <p>Technical demonstration of AI infrastructure, cloud automation, and DevOps integration for future commercial applications.</p>
+                <div class="tech-stack">
+                    <span>Python</span>
+                    <span>FastAPI</span>
+                    <span>OpenRouter</span>
+                    <span>Google Cloud</span>
+                    <span>Docker</span>
+                    <span>Nginx</span>
+                </div>
+                <a href="https://github.com/dev-mikel/ai-multimodel-chatbot" target="_blank" class="project-link">View on GitHub →</a>
+            </div>
+
+            <div class="project-card">
+                <h3>B2B2C Smart Hydroponics Platform</h3>
+                <p class="project-meta">October 2024 – March 2025 | Independent Consultant</p>
+                <p>Designed and architected an IoT platform for smart agriculture with automated sensing, control layers, and real-time analytics. The system includes environmental monitoring (temperature, humidity, pH, EC), automated irrigation control, and cloud data visualization dashboard.</p>
+                <p>Complete technical documentation including data flow models, communication protocols (MQTT, Modbus, TCP/IP), and scalability standards.</p>
+                <div class="tech-stack">
+                    <span>ESP32</span>
+                    <span>MQTT</span>
+                    <span>Modbus</span>
+                    <span>Cloud Integration</span>
+                    <span>Real-time Analytics</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Refrigeration Monitoring System</h3>
+                <p class="project-meta">October 2024 – March 2025 | Independent Consultant</p>
+                <p>Built a multi-site commercial refrigeration monitoring system centralizing operational and energy data across distributed locations. Implemented temperature sensors, door status monitoring, and energy consumption tracking with cloud-based alerting system.</p>
+                <p>Enabled predictive maintenance capabilities and reduced energy costs through data-driven insights.</p>
+                <div class="tech-stack">
+                    <span>IoT Architecture</span>
+                    <span>TCP/IP</span>
+                    <span>Cloud Platform</span>
+                    <span>Data Visualization</span>
+                    <span>Energy Monitoring</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Automated Indoor Plant Monitoring System</h3>
+                <p class="project-meta">February 2018 – November 2018 | Undergraduate Thesis</p>
+                <p>Developed an automated control and monitoring system for indoor plant cultivation using PIC microcontrollers and Android interface. Created an Android application with real-time GUI for sensor monitoring and designed a custom Bluetooth communication protocol for variable-length data exchange.</p>
+                <p>Achieved full prototype functionality meeting all technical objectives for automated irrigation and environmental control.</p>
+                <div class="tech-stack">
+                    <span>PIC Microcontroller</span>
+                    <span>Android</span>
+                    <span>Bluetooth</span>
+                    <span>C Programming</span>
+                    <span>Embedded Systems</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- editable: tech stack -->
+        <section id="technologies">
+            <h2>Tech Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3>Languages</h3>
+                    <p>C, Python, JavaScript, HTML5, CSS3, Bash, PowerShell</p>
+                </div>
+                <div class="tech-category">
+                    <h3>Embedded Systems</h3>
+                    <p>ESP32, Raspberry Pi, Arduino, PIC Microcontrollers, PlatformIO, EDA Tools, PCB Design</p>
+                </div>
+                <div class="tech-category">
+                    <h3>Cloud Platforms</h3>
+                    <p>AWS, Google Cloud, Oracle, DigitalOcean, Firebase</p>
+                </div>
+                <div class="tech-category">
+                    <h3>DevOps and Tools</h3>
+                    <p>Docker, Nginx, Git, GitHub, Bitbucket, CI/CD, Virtualization, WireGuard, Linux Debian</p>
+                </div>
+                <div class="tech-category">
+                    <h3>Databases</h3>
+                    <p>PostgreSQL, MySQL, MariaDB, SQLite, Redis, MongoDB, Prisma</p>
+                </div>
+                <div class="tech-category">
+                    <h3>Networking and Security</h3>
+                    <p>TCP/IP, MQTT, Modbus, LAN/WLAN, VPN, Firewalls</p>
+                </div>
+                <div class="tech-category">
+                    <h3>AI and Data</h3>
+                    <p>OpenRouter, OpenWebUI, RAG Systems, HuggingFace, Data Modeling, API Integration</p>
+                </div>
+                <div class="tech-category">
+                    <h3>Other Tools</h3>
+                    <p>Jira, Trello, Notion, Figma, Canva, Adobe Illustrator, Postman, Cloudflare</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- editable: experience -->
+        <section id="experience">
+            <h2>Experience</h2>
+
+            <div class="experience-item">
+                <h3>IoT Solutions Architect</h3>
+                <p class="company">Independent Consultant</p>
+                <p class="date">October 2024 – March 2025 | Caracas, Venezuela</p>
+                <p><strong>Smart Agriculture and Commercial Refrigeration Projects</strong></p>
+                <ul>
+                    <li>Designed and developed IoT architecture models and proposals for agricultural and commercial sectors</li>
+                    <li>Created a B2B2C smart hydroponics platform with automated sensing, control layers, and real-time analytics</li>
+                    <li>Built a multi-site refrigeration monitoring system centralizing operational and energy data</li>
+                    <li>Drafted technical documentation: data flow models, communication protocols (MQTT, Modbus, TCP/IP), scalability standards</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>IoT Solutions Architect</h3>
+                <p class="company">Soluciones Administrativas Cobremex, C.A.</p>
+                <p class="date">May 2024 – September 2024 | Caracas, Venezuela</p>
+                <p><strong>Toll and Transportation Industry – Vehicle Access Control System</strong></p>
+                <ul>
+                    <li>Led the proposal and design of an IoT-based vehicle access control system integrated with existing toll platform</li>
+                    <li>Defined IoT infrastructure, protocols, and cloud integration strategy</li>
+                    <li>Drafted architecture blueprints and scalability recommendations</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Embedded Hardware Engineer</h3>
+                <p class="company">Anyware Venezuela, C.A.</p>
+                <p class="date">March 2024 – May 2024 | Caracas, Venezuela</p>
+                <p><strong>Smart Parking Systems</strong></p>
+                <ul>
+                    <li>Designed custom PCB HAT shield for Raspberry Pi parking controllers</li>
+                    <li>Performed corrective maintenance and diagnostics for deployed systems</li>
+                    <li>Collaborated to improve hardware-software integration and reliability</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Embedded Hardware Engineer</h3>
+                <p class="company">Paytech Corporation C.A.</p>
+                <p class="date">February 2023 – February 2024 | Caracas, Venezuela</p>
+                <ul>
+                    <li>Led and coordinated technical support operations for PagoDirecto parking control system</li>
+                    <li>Managed component procurement and logistics</li>
+                    <li>Contributed to ESP32-based hardware redesign improving performance and reliability</li>
+                    <li>Provided field engineering support and maintenance</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Field Service Engineer</h3>
+                <p class="company">Thermo Fisher Scientific</p>
+                <p class="date">November 2021 – December 2022 | Caracas, Venezuela</p>
+                <p><strong>Scientific Instrumentation and Laboratory Equipment</strong></p>
+                <ul>
+                    <li>Provided preventive and corrective maintenance for Scanning and Transmission Electron Microscopy systems (SEM/TEM)</li>
+                    <li>Designed installation layouts in AutoCAD and detailed reports</li>
+                    <li>Managed procurement logistics and on-site operations across Latin America (Panama, Dominican Republic, Brazil)</li>
+                    <li>Drafted internal manuals and technical translations</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>IT Technician</h3>
+                <p class="company">Independent Consultant</p>
+                <p class="date">January 2020 – October 2021 | Caracas, Venezuela</p>
+                <ul>
+                    <li>Provided preventive and corrective maintenance for computers and peripherals</li>
+                    <li>Designed and installed LAN/WLAN networks</li>
+                    <li>Assembled and optimized PCs and workstations</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Field Service Engineer</h3>
+                <p class="company">Corporación Audvintech C.A.</p>
+                <p class="date">September 2019 – December 2019 | Caracas, Venezuela</p>
+                <p><strong>Corporate IT Infrastructure, Audiovisual Systems</strong></p>
+                <ul>
+                    <li>Maintained videoconference multimedia rooms in regional offices (Bogotá, Quito, Lima, Port of Spain)</li>
+                    <li>Provided client training and technical inspections</li>
+                    <li>Supported audiovisual connectivity and performance</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- editable: education -->
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="edu-item">
+                <h3>Electronics Engineering</h3>
+                <p class="meta">Universidad Nueva Esparta | 2018</p>
+            </div>
+
+        </section>
+
+        <!-- editable: certifications -->
+        <section id="certifications">
+            <h2>Courses and Certifications</h2>
+            
+            <div class="cert-item">
+                <h3>English C2 Certificate – EF SET (April, 2025)</h3>
+            </div>
+             <div class="cert-item">
+                <h3>Introduction to Project Management Course – FIMP College of Engineers of Venezuela</h3>
+            </div>
+             <div class="cert-item">
+                <h3>2D Design with AutoCAD Course – Abstract Training Center</h3>
+            </div>
+             <div class="cert-item">
+                <h3>Practical Introduction to Python Course – Platzi Inc USA</h3>
+            </div>
+             <div class="cert-item">
+                <h3>Professional English Certificate – Platzi USA</h3>
+            </div>
+             <div class="cert-item">
+                <h3>Customer Service Certificate – CIAP Universidad Católica Andres Bello</h3>
+            </div>
+             <div class="cert-item">
+                <h3>A/V Systems Associate Certificate – Extron Electronics US</h3>
+            </div>
+             <div class="cert-item">
+                <h3>Introduction to CCNA Networks Course – Muelles de Alejandría</h3>
+            </div>
+             <div class="cert-item">
+                <h3>English as a Foreign Language B2 CEFR Certificate – Centro Venezolano Americano</h3>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
