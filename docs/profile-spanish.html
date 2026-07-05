@@ -5,1177 +5,842 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Miguel Ladines" />
     <meta name="description"
-          content="Miguel Ladines - Profesional en Ingeniería, Desarrollo y Sistemas, experiencias en: IoT, Hardware, Cloud, Integración IA  y Analytics." />
-    <meta name="theme-color" content="#0a66c2" />
-    <title>Miguel Ladines - Perfil Profesional</title>
+          content="Miguel Ladines - Ingeniero de IA especializado en integración de LLM, automatización de negocio e infraestructura cloud. Formación en Ingeniería Electrónica." />
+    <meta name="theme-color" content="#0B1F33" />
+    <title>Miguel Ladines - Ingeniero de IA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --brand: #0b1f33;
-            --brand-soft: #f3f6fb;
-            --accent: #0a66c2;
-            --accent-soft: rgba(10, 102, 194, 0.08);
-            --text: #111827;
-            --muted: #4b5563;
-            --bg: #f3f5f8;
-            --card: #ffffff;
-            --border: #e5e7eb;
+            --paper: #F3F5F6;
+            --panel: #FFFFFF;
+            --ink: #0B1F33;
+            --ink-soft: #33465C;
+            --muted: #5B6772;
+            --blue: #0A66C2;
+            --blue-soft: rgba(10, 102, 194, .08);
+            --copper: #B5651D;
+            --copper-soft: rgba(181, 101, 29, .10);
+            --line: #CBD2D8;
+            --sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+            --display: 'Space Grotesk', var(--sans);
+            --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
         }
 
-        html {
-            font-size: 17px;
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
         }
 
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
+            font-family: var(--sans);
+            background: var(--paper);
+            color: var(--ink-soft);
             line-height: 1.65;
-            padding-bottom: 60px;
             margin: 0;
+            font-size: 16px;
         }
 
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
+        a { color: var(--blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
 
-        a:hover {
-            text-decoration: underline;
+        .tick {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-color: var(--ink);
+            opacity: .3;
+            pointer-events: none;
+            z-index: 50;
         }
+        .tick.tl { top: 14px; left: 14px; border-top: 1.5px solid; border-left: 1.5px solid; }
+        .tick.tr { top: 14px; right: 14px; border-top: 1.5px solid; border-right: 1.5px solid; }
+        .tick.bl { bottom: 14px; left: 14px; border-bottom: 1.5px solid; border-left: 1.5px solid; }
+        .tick.br { bottom: 14px; right: 14px; border-bottom: 1.5px solid; border-right: 1.5px solid; }
+        @media (max-width: 640px) { .tick { display: none; } }
 
-        .page {
-            max-width: 1120px;
+        .sheet {
+            max-width: 1180px;
             margin: 0 auto;
-            padding: 24px 20px;
+            padding: 34px clamp(18px, 4vw, 54px) 90px;
         }
 
-        /* NAV */
-        .top-nav {
+        .masthead-row {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 24px;
+            justify-content: space-between;
+            align-items: baseline;
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 14px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            gap: 8px;
         }
+        .doc-rev { color: var(--copper); }
 
-        .nav-links {
+        nav.top-nav {
             display: flex;
-            gap: 20px;
+            gap: 22px;
             flex-wrap: wrap;
             justify-content: center;
+            margin-bottom: 44px;
+            font-family: var(--mono);
+            font-size: 0.8rem;
         }
-
-        .nav-links a {
-            color: var(--muted);
-            position: relative;
+        nav.top-nav a {
+            color: var(--ink-soft);
             padding-bottom: 4px;
-            font-size: 0.92rem;
-            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+        nav.top-nav a:hover { color: var(--blue); border-bottom-color: var(--blue); text-decoration: none; }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 48px;
+            align-items: start;
+            margin-bottom: 70px;
+        }
+        .hero-photo-frame {
+            position: relative;
+            border: 1.5px dashed var(--line);
+            padding: 10px;
+            background: var(--panel);
+        }
+        .hero-photo-frame img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            filter: grayscale(0.15);
+        }
+        .photo-caption {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 8px;
+        }
+        .eyebrow {
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            color: var(--blue);
+            margin: 0 0 10px;
+            text-transform: uppercase;
+        }
+        .hero h1 {
+            font-family: var(--display);
+            font-size: clamp(2.1rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--ink);
+            margin: 0 0 6px;
+            letter-spacing: -0.02em;
+        }
+        .hero .role {
+            font-family: var(--display);
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--ink-soft);
+            margin: 0 0 18px;
+        }
+        .hero .summary { max-width: 640px; margin-bottom: 22px; }
+
+        .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+        .tag {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.03em;
+            padding: 5px 10px;
+            border: 1px solid var(--line);
+            color: var(--ink-soft);
+            background: var(--panel);
         }
 
-        .nav-links a::after {
+        .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+        .btn {
+            font-family: var(--mono);
+            font-size: 0.82rem;
+            padding: 11px 20px;
+            border: 1.5px solid var(--ink);
+            color: var(--ink);
+            display: inline-block;
+        }
+        .btn:hover { text-decoration: none; background: var(--ink); color: var(--paper); }
+        .btn-fill { background: var(--blue); border-color: var(--blue); color: #fff; }
+        .btn-fill:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+        section { margin-bottom: 66px; scroll-margin-top: 24px; }
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            margin-bottom: 26px;
+        }
+        .section-num {
+            font-family: var(--mono);
+            color: var(--copper);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .section-head h2 {
+            font-family: var(--display);
+            font-size: 1.5rem;
+            color: var(--ink);
+            margin: 0;
+        }
+        .section-rule { flex: 1; height: 1px; background: var(--line); }
+
+        .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 34px; }
+        .about-grid p { margin: 0 0 14px; }
+        .focus-list, .work-list { list-style: none; margin: 0; padding: 0; }
+        .focus-list li, .work-list li {
+            padding: 12px 0;
+            border-top: 1px solid var(--line);
+            font-size: 0.95rem;
+        }
+        .focus-list li:last-child, .work-list li:last-child { border-bottom: 1px solid var(--line); }
+        .focus-list strong, .work-list strong { color: var(--ink); display: block; margin-bottom: 2px; }
+        .about-sub-label {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin: 26px 0 4px;
+        }
+
+        .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .service-card {
+            border: 1px solid var(--line);
+            background: var(--panel);
+            padding: 18px;
+        }
+        .service-card .service-num { font-family: var(--mono); color: var(--copper); font-size: 0.78rem; }
+        .service-card h3 { font-family: var(--display); font-size: 1.02rem; color: var(--ink); margin: 6px 0 8px; }
+        .service-card p { font-size: 0.9rem; margin: 0; color: var(--muted); }
+
+        .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .project-card {
+            border: 1px solid var(--line);
+            background: var(--panel);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+        .project-id { font-family: var(--mono); color: var(--copper); font-size: 0.8rem; }
+        .project-card h3 { font-family: var(--display); font-size: 1.08rem; color: var(--ink); margin: 0; }
+        .project-card p.desc { font-size: 0.92rem; margin: 0 0 14px; flex-grow: 1; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+        .project-tags span {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            padding: 3px 7px;
+            background: var(--blue-soft);
+            color: var(--blue);
+        }
+        .project-card a.repo-link { font-family: var(--mono); font-size: 0.82rem; }
+
+        .stack-panel { margin-bottom: 22px; }
+        .stack-label {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .stack-badges img { margin: 0 6px 6px 0; }
+
+        .timeline { list-style: none; margin: 0; padding: 0; border-left: 1.5px solid var(--line); }
+        .tl-item { position: relative; padding: 0 0 34px 28px; }
+        .tl-item:last-child { padding-bottom: 0; }
+        .tl-item::before {
             content: "";
             position: absolute;
-            left: 0;
-            bottom: 0px;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: 0.2s ease-out;
+            left: -6px;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            background: var(--paper);
+            border: 2px solid var(--blue);
         }
-
-        .nav-links a:hover {
-            text-decoration: none;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* HERO CENTRADO */
-        header {
-            background-color: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 30px 24px 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
-            text-align: center;
-        }
-
-        .hero-main {
-            max-width: 720px;
-            margin: 0 auto 20px;
-        }
-
-        .hero-title {
-            font-size: 2.2rem;
-            font-weight: 750;
-            letter-spacing: -0.03em;
-            color: var(--brand);
+        .tl-date {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--copper);
             margin-bottom: 4px;
         }
+        .tl-item h3 { font-family: var(--display); font-size: 1.05rem; color: var(--ink); margin: 0 0 2px; }
+        .tl-org { font-size: 0.88rem; color: var(--muted); margin: 0 0 8px; }
+        .tl-body p { margin: 0 0 8px; font-size: 0.92rem; }
+        .tl-body ul { margin: 8px 0 0; padding-left: 18px; font-size: 0.9rem; }
+        .tl-body li { margin-bottom: 4px; }
 
-        .hero-role {
-            font-size: 1.2rem;
-            color: var(--accent);
-            font-weight: 650;
-            margin-bottom: 14px;
+        .edu-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 30px; }
+        .edu-card { border: 1px solid var(--line); background: var(--panel); padding: 20px; }
+        .edu-card h3 { font-family: var(--display); color: var(--ink); margin: 0 0 4px; font-size: 1.1rem; }
+        .edu-date { font-family: var(--mono); font-size: 0.75rem; color: var(--copper); margin-bottom: 10px; }
+        .thesis-card { border: 1px solid var(--line); background: var(--panel); padding: 20px; }
+        .thesis-card h3 { font-family: var(--display); color: var(--ink); margin: 6px 0 10px; font-size: 1.1rem; }
+        .thesis-card p { font-size: 0.92rem; margin: 0 0 10px; }
+        .thesis-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .thesis-tags span {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            padding: 3px 7px;
+            background: var(--copper-soft);
+            color: var(--copper);
         }
 
-        .hero-summary {
-            font-size: 1rem;
-            color: var(--muted);
-            margin-bottom: 16px;
-        }
-
-        .hero-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-bottom: 16px;
-        }
-
-        .hero-tag {
-            padding: 6px 12px;
-            border-radius: 999px;
-            font-size: 0.82rem;
-            background-color: var(--brand-soft);
-            color: var(--brand);
-            border: 1px solid var(--border);
-        }
-
-        .hero-contact {
-            font-size: 0.95rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            justify-content: center;
-            margin-bottom: 10px;
-            color: var(--muted);
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            margin-top: 10px;
-            margin-bottom: 8px;
-        }
-
-        .btn {
-            padding: 9px 22px;
-            font-size: 0.95rem;
-            border-radius: 999px;
-            font-weight: 600;
-            border: 1px solid transparent;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
-            color: #fff;
-            border-color: var(--accent);
-        }
-
-        .btn-primary:hover {
-            background-color: #084a8f;
-            text-decoration: none;
-        }
-
-        .btn-ghost {
-            background-color: transparent;
-            color: var(--accent);
-            border: 1px solid var(--accent-soft);
-        }
-
-        .btn-ghost:hover {
-            background-color: var(--accent-soft);
-            text-decoration: none;
-        }
-
-        .hero-availability {
-            max-width: 640px;
-            margin: 10px auto 0;
-            background: linear-gradient(135deg, #f6f8ff, #ffffff);
-            border-radius: 14px;
-            border: 1px solid var(--border);
-            padding: 14px 18px 12px;
-            font-size: 0.9rem;
-            text-align: left;
-        }
-
-        .hero-availability-title {
-            font-size: 0.82rem;
-            color: var(--muted);
+        .courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .courses-col h4 {
+            font-family: var(--mono);
+            font-size: 0.72rem;
             letter-spacing: 0.08em;
+            color: var(--muted);
             text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 8px;
-            text-align: center;
+            margin: 0 0 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--line);
         }
+        .courses-col ul { list-style: none; margin: 0; padding: 0; font-size: 0.88rem; }
+        .courses-col li { margin-bottom: 10px; padding-left: 14px; position: relative; }
+        .courses-col li::before { content: "—"; position: absolute; left: 0; color: var(--copper); }
 
-        .hero-availability ul {
-            margin: 0;
-            padding-left: 18px;
-            color: var(--muted);
+        footer { border-top: 1px solid var(--line); padding-top: 18px; }
+        .footer-contact { text-align: center; margin-bottom: 26px; }
+        .footer-contact p { font-size: 0.95rem; }
+
+        .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+        .reveal.is-visible { opacity: 1; transform: none; }
+
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-photo-frame { max-width: 220px; margin: 0 auto; }
+            .about-grid, .edu-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .projects-grid { grid-template-columns: 1fr; }
+            .courses-grid { grid-template-columns: 1fr; }
         }
-
-        /* SECCIONES GENERALES */
-        section {
-            background-color: var(--card);
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            padding: 28px 24px 26px;
-            margin-bottom: 22px;
+        @media (max-width: 480px) {
+            .services-grid { grid-template-columns: 1fr; }
         }
-
-        .section-title {
-            font-size: 1.32rem;
-            font-weight: 700;
-            color: var(--brand);
-            margin-bottom: 10px;
-        }
-
-        .section-subtitle {
-            font-size: 0.95rem;
-            color: var(--muted);
-            margin-bottom: 18px;
-        }
-
-        /* SOBRE MI */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-        }
-
-        .about-card {
-            background-color: #f9fafb;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            padding: 14px 16px;
-        }
-
-        .about-main p {
-            margin-bottom: 10px;
-            font-size: 0.97rem;
-            color: var(--muted);
-        }
-
-        .about-list {
-            list-style: none;
-            font-size: 0.95rem;
-            color: var(--text);
-            padding-left: 0;
-            margin: 0;
-        }
-
-        .about-list li {
-            margin-bottom: 8px;
-            padding-left: 16px;
-            position: relative;
-        }
-
-        .about-list li::before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--accent);
-        }
-
-        /* COMO PUEDO APORTAR */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 16px;
-        }
-
-        .service-card {
-            padding: 14px;
-            background-color: #f9fafb;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            font-size: 0.95rem;
-        }
-
-        .service-title {
-            font-size: 1rem;
-            font-weight: 650;
-            margin-bottom: 4px;
-            color: var(--brand);
-        }
-
-        .service-body {
-            color: var(--muted);
-        }
-
-        /* PROYECTOS – 1 COLUMNA */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 16px;
-        }
-
-        .project-card {
-            padding: 16px;
-            border-radius: 14px;
-            border: 1px solid var(--border);
-            background-color: #f9fafb;
-            font-size: 0.95rem;
-        }
-
-        .project-title {
-            font-size: 1.1rem;
-            font-weight: 650;
-            margin-bottom: 4px;
-            color: var(--brand);
-        }
-
-        .project-meta {
-            font-size: 0.85rem;
-            color: var(--muted);
-            margin-bottom: 6px;
-        }
-
-        .project-section-label {
-            font-weight: 600;
-            color: var(--brand);
-            font-size: 0.9rem;
-        }
-
-        .project-line {
-            margin-bottom: 7px;
-            color: var(--muted);
-        }
-
-        /* STACK TECNOLÓGICO 3x2 */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 16px;
-        }
-
-        .tech-block {
-            padding: 12px;
-            background-color: #f9fafb;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            font-size: 0.95rem;
-        }
-
-        .tech-block-title {
-            font-size: 0.78rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.07em;
-            margin-bottom: 4px;
-            color: var(--accent);
-        }
-
-        /* EXPERIENCIA */
-        .experience-list {
-            display: grid;
-            gap: 14px;
-        }
-
-        .exp-item {
-            padding: 14px 14px 12px;
-            background-color: #f9fafb;
-            border-radius: 12px;
-            border: 1px dashed var(--border);
-            font-size: 0.95rem;
-        }
-
-        .exp-title {
-            font-size: 1.02rem;
-            font-weight: 650;
-            color: var(--brand);
-            margin-bottom: 2px;
-        }
-
-        .exp-meta {
-            font-size: 0.95rem;
-            color: var(--muted);
-            margin-bottom: 4px;
-        }
-
-        .exp-summary {
-            margin-bottom: 6px;
-            color: var(--muted);
-        }
-
-        .exp-points {
-            margin-left: 18px;
-            margin-bottom: 6px;
-            color: var(--muted);
-        }
-
-        .exp-points li {
-            margin-bottom: 3px;
-        }
-
-        /* CURSOS Y CERTIFICACIONES */
-        .courses-card {
-            padding: 14px 16px;
-            background-color: #f9fafb;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            font-size: 0.95rem;
-        }
-
-        .courses-list {
-            margin: 0;
-            padding-left: 18px;
-            color: var(--muted);
-        }
-
-        .courses-list li {
-            margin-bottom: 6px;
-        }
-
-        /* CONTACTO */
-        #contacto {
-            text-align: center;
-        }
-
-        .contact-tags {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 18px;
-        }
-
-        .contact-tag {
-            padding: 6px 12px;
-            font-size: 0.82rem;
-            background-color: var(--accent-soft);
-            border-radius: 999px;
-            color: var(--accent);
-        }
-
-        footer {
-            margin-top: 30px;
-            font-size: 0.85rem;
-            text-align: center;
-            color: var(--muted);
-        }
-
-        footer a {
-            color: var(--muted);
-        }
-
-        footer a:hover {
-            color: var(--accent);
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 880px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            }
-
-            .tech-grid {
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            }
-        }
-
-        @media (max-width: 640px) {
-            .top-nav {
-                margin-bottom: 18px;
-            }
-
-            header {
-                padding-inline: 18px;
-            }
-
-            .page {
-                padding-inline: 16px;
-            }  
-        }
-        /* === HERO MAIN GRID === */
-.hero-grid-main {
-    display: grid;
-    grid-template-columns: 400px 1fr;
-    gap: 32px;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-}
-
-/* FOTO IZQUIERDA */
-.hero-photo-col {
-    display: flex;
-    justify-content: center;
-}
-
-.hero-photo-large {
-    width: 350px;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 3px solid #e5e7eb;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
-}
-
-/* TEXTO PRINCIPAL DERECHA */
-.hero-text-col {
-    text-align: left;
-    margin-right: 30px;
-}
-
-.hero-text-col .hero-title {
-    margin-top: 4px;
-}
-
-/* TODO LO DEMÁS ABAJO */
-.hero-bottom {
-    text-align: center;
-    margin-top: 14px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    .hero-grid-main {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .hero-text-col {
-        text-align: center;
-    }
-    .hero-photo-large {
-        width: 260px;
-        height: 260px;
-    }
-}
-   
     </style>
 </head>
 <body>
-<div class="page">
 
-    <!-- NAV -->
+<div class="tick tl"></div>
+<div class="tick tr"></div>
+<div class="tick bl"></div>
+<div class="tick br"></div>
+
+<div class="sheet">
+
+    <div class="masthead-row">
+        <span>MIGUEL LADINES — PERFIL TÉCNICO</span>
+        <span class="doc-rev">REV 2026.07</span>
+    </div>
+
     <nav class="top-nav" aria-label="Navegación principal">
-        <div class="nav-links">
-            <a href="#sobre-mi">Sobre mí</a>
-            <a href="#proyectos">Proyectos</a>
-            <a href="#stack">Stack</a>
-            <a href="#experiencia">Experiencia</a>
-            <a href="#cursos">Cursos</a>
-            <a href="#contacto">Contacto</a>
-        </div>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#stack">Stack</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#educacion">Educación</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#contacto">Contacto</a>
     </nav>
 
-    <!-- HERO GRID -->
-    <header>
-
-    <!-- GRID PRINCIPAL: FOTO IZQUIERDA + TEXTO DERECHA -->
-    <div class="hero-grid-main">
-
-        <!-- FOTO -->
-        <div class="hero-photo-col">
-            <img src="assets/photo.jpg" alt="Foto de Miguel Ladines" class="hero-photo-large">
+    <!-- HERO -->
+    <section class="hero reveal">
+        <div>
+            <div class="hero-photo-frame">
+                <img src="assets/photo.jpg" alt="Foto de Miguel Ladines">
+            </div>
+            <p class="photo-caption">FIG. 01 — M. LADINES</p>
         </div>
-
-        <!-- TEXTO -->
-        <div class="hero-text-col">
-            <h1 class="hero-title">Miguel Ladines</h1>
-
-            <p class="hero-role">
-                Arquitecto de Soluciones IoT e Ingeniero de Hardware Embebido
+        <div>
+            <p class="eyebrow">§00 — Perfil</p>
+            <h1>Miguel Ladines</h1>
+            <p class="role">Ingeniero de IA — Integración de LLM · Automatización de Negocio · Infraestructura Cloud</p>
+            <p class="summary">
+                Ingeniero Electrónico bilingüe (Español/Inglés C2) con más de 5 años de experiencia en consultoría IT,
+                infraestructura IT corporativa, investigación científica, transporte inteligente y banca. Un enfoque
+                centrado en sistemas moldeado por ese recorrido multidominio: arquitectura desde la capa de datos hasta
+                la capa de negocio, evaluando siempre lo que una decisión cuesta o ahorra, no solo si funciona técnicamente.
             </p>
-
-            <p class="hero-summary">
-                Profesional en Ingeniería, Desarrollo y Sistemas con experiencia en entornos
-                donde hardware, software y datos convergen: IoT, sistemas embebidos, cloud,
-                IA aplicada y soporte técnico. Interesado en roles técnicos y de ingeniería
-                donde pueda conectar dispositivos, infraestructura y negocio de forma práctica
-                y medible.
-            </p>
+            <div class="tag-row">
+                <span class="tag">📍 Caracas, Venezuela · UTC-4</span>
+                <span class="tag">Español nativo / Inglés C2</span>
+                <span class="tag">Abierto a remoto · híbrido · presencial</span>
+            </div>
+            <div class="btn-row">
+                <a class="btn btn-fill" href="cv/cv-miguel-ladines-eng.pdf" target="_blank">Descargar CV (Inglés)</a>
+                <a class="btn" href="mailto:ladinesmiguel770@gmail.com">Disponible para entrevistas</a>
+                <a class="btn" href="profile-english.html">English version</a>
+            </div>
         </div>
-
-    </div>
-
-    <!-- TODO LO DEMÁS ABAJO, CENTRADO -->
-    <div class="hero-bottom">
-
-        <div class="hero-tags">
-            <span class="hero-tag">Ingeniería & Desarrollo</span>
-            <span class="hero-tag">Sistemas Embebidos & IoT</span>
-            <span class="hero-tag">Infraestructura Cloud</span>
-            <span class="hero-tag">IA / LLM Integration</span>
-        </div>
-
-        <div class="hero-contact">
-            <span>📍 Caracas, Venezuela</span>
-            <a href="mailto:ladinesmiguel770@gmail.com">✉️ Email</a>
-            <a href="https://linkedin.com/in/ladinesmiguel" target="_blank">LinkedIn</a>
-            <a href="https://github.com/dev-mikel" target="_blank">GitHub</a>
-        </div>
-
-        <div class="hero-actions">
-            <a class="btn btn-primary" href="cv/cv-miguel-ladines-eng.pdf" target="_blank">Descargar CV (Inglés)</a>
-            <a class="btn btn-ghost" href="mailto:ladinesmiguel770@gmail.com">Disponible para entrevistas</a>
-            <a class="btn btn-ghost" href="profile-english.html">Versión en inglés</a>
-        </div>
-
-        <div class="hero-availability">
-            <div class="hero-availability-title">Disponibilidad & Enfoque</div>
-            <ul>
-                <li><strong>Modalidad:</strong> Remoto, híbrido o presencial.</li>
-                <li><strong>Modalidad laboral:</strong> Tiempo completo, medio tiempo o por proyecto.</li>
-                <li><strong>Áreas:</strong> Ingeniería, Desarrollo, IoT, Embedded, Cloud, IA, Soporte Técnico.</li>
-                <li><strong>Idiomas:</strong> Español nativo, inglés C2.</li>
-            </ul>
-        </div>
-
-    </div>
-
-</header>
-
+    </section>
 
     <!-- SOBRE MI -->
-    <section id="sobre-mi">
-        <h2 class="section-title">Sobre mí</h2>
-        <p class="section-subtitle">Visión de sistemas, ingeniería aplicada y foco en resultados medibles.</p>
+    <section id="sobre-mi" class="reveal">
+        <div class="section-head">
+            <span class="section-num">§01</span>
+            <h2>Sobre mí</h2>
+            <span class="section-rule"></span>
+        </div>
 
         <div class="about-grid">
-            <div class="about-card">
-                <div class="about-main">
-                    <p>
-                        He construido mi carrera a través de diversos entornos tecnológicos, contribuyendo a proyectos que combinan
-                        ingeniería, datos y arquitectura de sistemas en diferentes países y sectores.
-                    </p>
-                    <p>
-                        Cada contexto ha sido una oportunidad para entender cómo la tecnología se adapta a distintas realidades
-                        operativas, regulatorias y culturales.
-                    </p>
-                    <p>
-                        Esta experiencia internacional me permitió desarrollar una visión integrada de los sistemas — entendiendo
-                        que más allá del hardware o el software, lo que realmente importa es la comunicación entre ellos y su
-                        alineación con los objetivos del negocio.
-                    </p>
-                    <p>
-                        A lo largo de mi carrera, he trabajado en entornos donde hardware, software y datos convergen, asegurando
-                        comunicación, estabilidad y escalabilidad a través de capas técnicas. Ese camino moldeó mi capacidad para
-                        pensar de manera sistémica y enfocarme en interoperabilidad y eficiencia.
-                    </p>
-                    <p>
-                        Hoy, dirijo mi trabajo hacia soluciones que transforman información en decisiones y tecnología en resultados
-                        medibles — asegurando que cada implementación genere impacto operativo y valor sostenible.
-                    </p>
-                </div>
+            <div>
+                <p>
+                    Diseño, construyo y despliego soluciones de IA aplicada y automatización de extremo a extremo,
+                    validadas en producción — no solo prototipadas. Ese recorrido multidominio entre investigación,
+                    infraestructura corporativa y consultoría independiente moldeó un enfoque centrado en sistemas:
+                    pienso en arquitectura, desde la capa de datos hasta la capa de negocio, y diseño en consecuencia.
+                </p>
+                <p class="about-sub-label">💼 ÁREAS PRINCIPALES</p>
+                <ul class="focus-list">
+                    <li><strong>Integración de LLM</strong>Plataformas de IA multi-modelo, autoalojadas y basadas en API, llevadas de prototipo a despliegue en servidor cloud y validadas end-to-end.</li>
+                    <li><strong>Automatización</strong>Orquestación de flujos de trabajo y pipelines de reportes construidos para fallar de forma segura, con validación automática y reintentos en vez de errores silenciosos.</li>
+                    <li><strong>Cloud y DevOps</strong>Despliegue containerizado e infraestructura como código, con cada componente validado al momento de aplicarse, no asumido como funcional.</li>
+                    <li><strong>Desarrollo asistido por IA</strong>Uso herramientas nativas de IA (Claude Code) como parte de mi flujo de trabajo diario.</li>
+                </ul>
             </div>
-
-            <div class="about-card">
-                <ul class="about-list">
-                    <li>Pensamiento a nivel de sistemas: la habilidad de conectar dispositivos, datos e infraestructura dentro de
-                        ecosistemas coherentes, mantenibles y escalables.</li>
-                    <li>Experiencia multidominio: exposición a entornos científicos, corporativos y operativos que demandan
-                        confiabilidad, precisión y adaptabilidad.</li>
-                    <li>Mentalidad de ingeniería práctica: desde diseño embebido y modelado de flujo de datos hasta gestión de
-                        infraestructura y optimización de procesos.</li>
-                    <li>Enfoque analítico y pragmático: enfocado en trazabilidad, eficiencia y resultados operativos medibles.</li>
-                    <li>Evolución continua: disposición al aprendizaje continuo, habilidades para aprender rápidamente nuevas
-                        tecnologías y capacidades.</li>
+            <div>
+                <p class="about-sub-label">🛠️ CÓMO TRABAJO</p>
+                <ul class="work-list">
+                    <li><strong>Arquitectura por escrito antes del código</strong>Decisiones delimitadas y documentadas para que el sistema sea mantenible por alguien que no sea yo.</li>
+                    <li><strong>Verificar, no asumir</strong>En stacks que cambian rápido, confirmo contra fuentes primarias en vez de confiar en la memoria.</li>
+                    <li><strong>Reproducible por defecto</strong>Configuraciones containerizadas y con versiones fijas que se comportan igual en cualquier host.</li>
+                    <li><strong>Alineado al negocio</strong>Cada decisión técnica evaluada contra el resultado que sirve, no construida por construir.</li>
+                    <li><strong>Alcance honesto</strong>Explícito sobre qué es prototipo y qué está en producción, sin reclamar resultados que no pueda respaldar.</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- COMO PUEDO APORTAR -->
-    <section id="como-aportar">
-        <h2 class="section-title">Cómo puedo aportar</h2>
-        <p class="section-subtitle">Abierto a roles en Ingeniería, Desarrollo y Soporte Técnico de alto nivel.</p>
-
+    <section class="reveal">
+        <div class="section-head">
+            <span class="section-num">§02</span>
+            <h2>Cómo puedo aportar</h2>
+            <span class="section-rule"></span>
+        </div>
         <div class="services-grid">
             <article class="service-card">
-                <h3 class="service-title">Arquitectura IoT & Telemetría</h3>
-                <p class="service-body">
-                    Diseño de arquitecturas para dispositivos, flujos de datos y protocolos de comunicación en proyectos de
-                    monitoreo, automatización y control distribuido.
-                </p>
+                <div class="service-num">01</div>
+                <h3>Integración de LLM</h3>
+                <p>Plataformas de IA multi-modelo — autoalojadas o basadas en API — de prototipo a despliegue cloud validado.</p>
             </article>
-
             <article class="service-card">
-                <h3 class="service-title">Hardware Embebido & PCB</h3>
-                <p class="service-body">
-                    Selección de componentes, diseño de PCB, prototipado y firmware para ESP32, Raspberry Pi y
-                    microcontroladores.
-                </p>
+                <div class="service-num">02</div>
+                <h3>Automatización de Negocio</h3>
+                <p>Orquestación de flujos de trabajo y pipelines de reportes que fallan de forma segura, con reintentos en vez de errores silenciosos.</p>
             </article>
-
             <article class="service-card">
-                <h3 class="service-title">Cloud para IoT & IA</h3>
-                <p class="service-body">
-                    Soluciones cloud ligeras para recibir telemetría, exponer APIs, integrar LLM y habilitar dashboards y
-                    servicios orientados a negocio.
-                </p>
+                <div class="service-num">03</div>
+                <h3>Infraestructura Cloud</h3>
+                <p>Despliegue containerizado e infraestructura como código — cada componente validado, no asumido como funcional.</p>
             </article>
-
             <article class="service-card">
-                <h3 class="service-title">Documentación Técnica</h3>
-                <p class="service-body">
-                    FSR, SAD, ADR, diagramas de arquitectura y paquetes técnicos previos al desarrollo para facilitar el
-                    trabajo de equipos de ingeniería.
-                </p>
-            </article>
-
-            <article class="service-card">
-                <h3 class="service-title">Desarrollo Full Stack HW/SW</h3>
-                <p class="service-body">
-                    Integración de capas hardware y software: desde firmware y adquisición de datos hasta APIs, servicios
-                    backend, paneles web y automatización básica de despliegues.
-                </p>
-            </article>
-
-            <article class="service-card">
-                <h3 class="service-title">Soporte Técnico Avanzado</h3>
-                <p class="service-body">
-                    Diagnóstico de problemas complejos en campo o remoto, mantenimiento de sistemas críticos, gestión de
-                    incidencias y apoyo de segundo nivel en entornos de alta exigencia.
-                </p>
+                <div class="service-num">04</div>
+                <h3>Documentación Técnica</h3>
+                <p>FSR, SAD, ADR y diagramas C4 que delimitan un sistema por escrito antes de que exista una línea de código.</p>
             </article>
         </div>
     </section>
 
     <!-- PROYECTOS -->
-    <section id="proyectos">
-        <h2 class="section-title">Proyectos destacados</h2>
-        <p class="section-subtitle">Proyectos técnicos en areas de: IA, IoT, Analytics y Automatización.</p>
-
+    <section id="proyectos" class="reveal">
+        <div class="section-head">
+            <span class="section-num">§03</span>
+            <h2>Proyectos destacados</h2>
+            <span class="section-rule"></span>
+        </div>
         <div class="projects-grid">
 
-            <!-- Proyecto 4: Pipeline Data Insurance Analytics -->
             <article class="project-card">
-                <h3 class="project-title">Tubería de Datos de Extremo a Extremo: Industria Aseguradora</h3>
-                <p class="project-meta">2025 · Proyecto Técnico</p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Industria:</span>
-                    Analítica de Seguros · Ingeniería de Datos · BI & Analytics Dashboard · Gobierno de Datos
-                </p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Resumen:</span>
-                    Plataforma integral de analítica de seguros que simula un portafolio asegurador realista de múltiples líneas, 
-                    desde la generación de datos sintéticos hasta datasets listos para BI y dashboards ejecutivos. El proyecto cubre 
-                    todo el ciclo de vida del dato: simulación basada en configuración, datos RAW operativos, normalización a esquema 
-                    estrella, gobierno de base de datos y validación de KPIs mediante múltiples capas de HealthChecks.
-                </p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Keywords:</span>
-                    Analítica de Seguros · Ingeniería de Datos · Datos Sintéticos · Esquema Estrella · Calidad de Datos · HealthChecks · Validación de KPIs · BI · Simulación de Portafolio CLI · Validación de Datos · Modelado Dimensional · Diseño ETL/ELT
-                </p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Tech Stack:</span>
-                    Python · Pandas · NumPy · Supabase (PostgreSQL) · SQL · Looker Studio · VSCODE · Git/GitHub · Linux · CLI · Bash  
-                </p>
-
-                <p class="project-line">
-                    <a href="https://github.com/dev-mikel/ai-multimodel-chatbot" target="_blank" rel="noreferrer">
-                        Ver en GitHub →
-                    </a>
-                </p>
+                <div class="project-card-head"><span class="project-id">P-01</span><h3>Pipeline de Reportes con IA</h3></div>
+                <p class="desc">Un pipeline de reportes semanales completamente automatizado para un negocio de
+                    distribución multi-sucursal. n8n orquesta el flujo, un modelo de IA genera el resumen ejecutivo, y
+                    un PDF estrictamente de dos páginas se renderiza y envía por correo — con seis reintentos
+                    escalonados y una aserción de conteo de páginas que bloquea cualquier reporte malformado.</p>
+                <div class="project-tags"><span>n8n</span><span>PostgreSQL</span><span>WeasyPrint</span><span>Docker Compose</span></div>
+                <a class="repo-link" href="https://github.com/dev-mikel/salesreport-automation" target="_blank" rel="noreferrer">Ver en GitHub →</a>
             </article>
 
-            <!-- Proyecto 1: Chatbot IA Multimodelo -->
             <article class="project-card">
-                <h3 class="project-title">Chatbot de IA Multimodelo en Google Cloud</h3>
-                <p class="project-meta">2025 · Proyecto Técnico</p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Industria:</span>
-                    Ingeniería de IA · Infraestructura Cloud · DevOps / MLOps
-                </p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Resumen:</span>
-                    Plataforma de chatbot de IA desplegada en Google Cloud Compute Engine, integrando OpenWebUI con la API de
-                    OpenRouter para trabajar con múltiples LLM bajo una interfaz unificada. Incluye VPC personalizada, VM
-                    Debian endurecida, Nginx como reverse proxy con TLS y stack contenerizado con Docker.
-                </p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Keywords:</span>
-                    Multi-LLM · OpenRouter · OpenWebUI · Google Cloud · Nginx Reverse Proxy · TLS/HTTPS · DevOps · Telemetría
-                    de logs · Cost Optimization · Infraestructura escalable
-                </p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Tech Stack:</span>
-                    Google Cloud Compute Engine · Debian · Docker · Nginx · Certbot/Let’s Encrypt · OpenWebUI · OpenRouter API
-                    · Firewall Hardening · Shell Scripts · WebSockets
-                </p>
-
-                <p class="project-line">
-                    <a href="https://github.com/dev-mikel/ai-multimodel-chatbot" target="_blank" rel="noreferrer">
-                        Ver en GitHub →
-                    </a>
-                </p>
+                <div class="project-card-head"><span class="project-id">P-02</span><h3>Chatbot IA Multimodelo Autoalojado</h3></div>
+                <p class="desc">Una plataforma de chat con IA desplegada de principio a fin en una VM de Google Cloud —
+                    desde una instancia Debian recién creada hasta un endpoint HTTPS en vivo. OpenWebUI corre detrás de
+                    NGINX; cada llamada a modelos pasa por OpenRouter para acceso pago-por-token a OpenAI, Anthropic,
+                    xAI y DeepInfra, con UFW, reglas de firewall de VPC y una Shielded VM.</p>
+                <div class="project-tags"><span>Docker</span><span>NGINX</span><span>GCP</span><span>OpenRouter</span></div>
+                <a class="repo-link" href="https://github.com/dev-mikel/ai-multimodel-chatbot" target="_blank" rel="noreferrer">Ver en GitHub →</a>
             </article>
 
-            <!-- Proyecto 2: SmartCrops -->
             <article class="project-card">
-                <h3 class="project-title">Plataforma de Hidroponía Inteligente SmartCrops</h3>
-                <p class="project-meta">2025 · Proyecto Técnico</p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Industria:</span>
-                    Agrotech · Hidroponía Inteligente · IoT · Dispositos Edge · Cloud
-                </p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Resumen:</span>
-                    Arquitectura completa IoT/Edge/Cloud para automatizar sistemas Flood &amp; Drain con nodos ESP32, backend
-                    contenerizado, telemetría MQTT, base de datos de series temporales y dashboard web de solo lectura. Incluye
-                    paquete técnico con FSR, SAD, catálogo de ADR y diagramas C4.
-                </p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Keywords:</span>
-                    IoT · Edge Computing · Hidroponía · MQTT · ESP32 · Telemetría en tiempo real · Zero Trust · Automatización
-                    agrícola · Arquitectura escalable · Documentación técnica
-                </p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Tech Stack:</span>
-                    ESP32 · MQTT · Fastify (backend) · Next.js (dashboard) · PostgreSQL · Docker Compose · WebSockets · Linux
-                    · ADRs · C4 Diagrams
-                </p>
-
-                <p class="project-line">
-                    <a href="https://github.com/dev-mikel/smartcrops" target="_blank" rel="noreferrer">
-                        Ver en GitHub →
-                    </a>
-                </p>
+                <div class="project-card-head"><span class="project-id">P-03</span><h3>Dashboard de Analítica de Seguros</h3></div>
+                <p class="desc">Un pipeline modular en Python que genera un portafolio de seguros sintético, valida la
+                    calidad de los datos en cada frontera de etapa, y carga un esquema en estrella de cinco dimensiones
+                    en un almacén Supabase con seguridad a nivel de fila — alimentando cuatro dashboards de Looker
+                    Studio a través de una capa semántica de grano fijo.</p>
+                <div class="project-tags"><span>Python</span><span>pandas</span><span>Supabase</span><span>Looker Studio</span></div>
+                <a class="repo-link" href="https://github.com/dev-mikel/insurance-analytics" target="_blank" rel="noreferrer">Ver en GitHub →</a>
             </article>
 
-            <!-- Proyecto 3: Tesis HW/FW -->
             <article class="project-card">
-                <h3 class="project-title">Proyecto Tesis: Desarrollo de Sistema Embebido HW/FW</h3>
-                <p class="project-meta">2018 · Tésis Ingeniería</p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Industria:</span>
-                    Agrotech · Automatización · Sistemas Embebidos
-                </p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Resumen:</span>
-                    Desarrollo de un sistema automatizado para cultivos indoor con PCB personalizada basada en microcontrolador
-                    PIC, firmware en C para control de riego, iluminación, aireación y ambiente, además de una aplicación
-                    Android con GUI en tiempo real y comunicación Bluetooth personalizada.
-                </p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Keywords:</span>
-                    Embedded Systems · PCB Design · PIC Microcontroller · Bluetooth Telemetry · Android App · Indoor Farming ·
-                    Control en tiempo real · Sensores · Actuadores · Firmware C
-                </p>
-
-                <p class="project-line">
-                    <span class="project-section-label">Tech Stack:</span>
-                    Microcontrolador PIC · C · PCB personalizada · Android · Bluetooth · Sensores ambientales · Control de
-                    actuadores · Sistemas de riego · Real-time control · Protocolo propio
-                </p>
-
-                <p class="project-line">
-                    <a href="https://github.com/dev-mikel/thesis-engineering" target="_blank" rel="noreferrer">
-                        Ver en GitHub →
-                    </a>
-                </p>
+                <div class="project-card-head"><span class="project-id">P-04</span><h3>Plataforma de Reserva GoldenMovies</h3></div>
+                <p class="desc">Una experiencia de reserva de cine bilingüe construida sobre Next.js 16 App Router y
+                    React Server Components de React 19 — un mapa de asientos interactivo con precios por nivel,
+                    validación con Zod compartida entre cliente y servidor, limitación de tasa por IP, y una ruta
+                    documentada hacia una capa de datos de producción.</p>
+                <div class="project-tags"><span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>Tailwind CSS</span></div>
+                <a class="repo-link" href="https://github.com/dev-mikel/goldenmovies-webapp" target="_blank" rel="noreferrer">Ver en GitHub →</a>
             </article>
+
+            <article class="project-card">
+                <div class="project-card-head"><span class="project-id">P-05</span><h3>Arquitectura Hidropónica SmartCrops</h3></div>
+                <p class="desc">Un paquete de arquitectura de pre-desarrollo para un sistema hidropónico comercial tipo
+                    Flujo y Reflujo: una plataforma IoT local-first que ejecuta toda la lógica de control en sitio y
+                    sincroniza hacia un dashboard cloud de solo lectura mediante un canal firmado con HMAC — un límite
+                    de confianza al estilo ICS/SCADA. Entregado como seis diagramas C4 más un FSR, SAD y 14 ADR.</p>
+                <div class="project-tags"><span>ESP32</span><span>MQTT</span><span>Modelo C4</span><span>PostgreSQL</span></div>
+                <a class="repo-link" href="https://github.com/dev-mikel/agrotech-controlsystem" target="_blank" rel="noreferrer">Ver en GitHub →</a>
+            </article>
+
         </div>
     </section>
 
-    <!-- STACK TECNOLÓGICO -->
-    <section id="stack">
-        <h2 class="section-title">Stack tecnológico</h2>
-        <p class="section-subtitle">Tecnologías con las que trabajo con mayor comodidad.</p>
+    <!-- STACK -->
+    <section id="stack" class="reveal">
+        <div class="section-head">
+            <span class="section-num">§04</span>
+            <h2>Stack tecnológico</h2>
+            <span class="section-rule"></span>
+        </div>
 
-        <div class="tech-grid">
-            <div class="tech-block">
-                <div class="tech-block-title">Lenguajes</div>
-                <p>C, Python, JavaScript, HTML5, CSS3, Bash, PowerShell.</p>
+        <div class="stack-panel">
+            <div class="stack-label">Lenguajes y Web</div>
+            <div class="stack-badges">
+                <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white" alt="C" />
+                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+                <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+                <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="JavaScript" />
+                <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+                <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css&logoColor=white" alt="CSS3" />
+                <img src="https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" alt="Bash" />
             </div>
-            <div class="tech-block">
-                <div class="tech-block-title">Sistemas embebidos</div>
-                <p>ESP32, Raspberry Pi, Arduino, microcontroladores PIC, PlatformIO, herramientas EDA, diseño PCB.</p>
+        </div>
+
+        <div class="stack-panel">
+            <div class="stack-label">IA y LLM</div>
+            <div class="stack-badges">
+                <img src="https://img.shields.io/badge/Claude_Code-D97757?style=for-the-badge&logo=claude&logoColor=white" alt="Claude Code" />
+                <img src="https://img.shields.io/badge/OpenAI_API-412991?style=for-the-badge" alt="OpenAI API" />
+                <img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face" />
+                <img src="https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white" alt="Ollama" />
+                <img src="https://img.shields.io/badge/OpenRouter-EA4B71?style=for-the-badge&logo=openrouter&logoColor=white" alt="OpenRouter" />
             </div>
-            <div class="tech-block">
-                <div class="tech-block-title">Cloud & DevOps</div>
-                <p>AWS, Google Cloud, Oracle, Docker, Nginx, Git/GitHub, CI/CD, Linux Debian, WireGuard.</p>
+        </div>
+
+        <div class="stack-panel">
+            <div class="stack-label">Backend y Frameworks</div>
+            <div class="stack-badges">
+                <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+                <img src="https://img.shields.io/badge/Fastify-000000?style=for-the-badge&logo=fastify&logoColor=white" alt="Fastify" />
+                <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
+                <img src="https://img.shields.io/badge/React-149ECA?style=for-the-badge&logo=react&logoColor=white" alt="React" />
+                <img src="https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+                <img src="https://img.shields.io/badge/n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white" alt="n8n" />
             </div>
-            <div class="tech-block">
-                <div class="tech-block-title">Datos & Mensajería</div>
-                <p>PostgreSQL, MySQL, MariaDB, SQLite, Redis, MongoDB, MQTT, Modbus, TCP/IP, LAN/WLAN, VPN.</p>
+        </div>
+
+        <div class="stack-panel">
+            <div class="stack-label">Cloud y DevOps</div>
+            <div class="stack-badges">
+                <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+                <img src="https://img.shields.io/badge/Ansible-EE0000?style=for-the-badge&logo=ansible&logoColor=white" alt="Ansible" />
+                <img src="https://img.shields.io/badge/NGINX-009639?style=for-the-badge&logo=nginx&logoColor=white" alt="NGINX" />
+                <img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Google Cloud" />
+                <img src="https://img.shields.io/badge/DigitalOcean-0167FF?style=for-the-badge&logo=digitalocean&logoColor=white" alt="DigitalOcean" />
+                <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
+                <img src="https://img.shields.io/badge/Git-F05033?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
+                <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+                <img src="https://img.shields.io/badge/WireGuard-88171A?style=for-the-badge&logo=wireguard&logoColor=white" alt="WireGuard" />
+                <img src="https://img.shields.io/badge/Tailscale-242424?style=for-the-badge&logo=tailscale&logoColor=white" alt="Tailscale" />
             </div>
-            <div class="tech-block">
-                <div class="tech-block-title">IA & LLM</div>
-                <p>OpenRouter, OpenWebUI, APIs de modelos, flujos multi-LLM, RAG básico, HuggingFace.</p>
+        </div>
+
+        <div class="stack-panel">
+            <div class="stack-label">Bases de Datos</div>
+            <div class="stack-badges">
+                <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+                <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+                <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB" />
+                <img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
+                <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis" />
+                <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
             </div>
-            <div class="tech-block">
-                <div class="tech-block-title">Productividad</div>
-                <p>Jira, Trello, Notion, Figma, Canva, Adobe Illustrator, Postman, Cloudflare, Google Workspace, MS365.</p>
+        </div>
+
+        <div class="stack-panel">
+            <div class="stack-label">Embebidos e IoT</div>
+            <div class="stack-badges">
+                <img src="https://img.shields.io/badge/ESP32-E7352C?style=for-the-badge&logo=espressif&logoColor=white" alt="ESP32" />
+                <img src="https://img.shields.io/badge/Raspberry_Pi-C51A4A?style=for-the-badge&logo=raspberrypi&logoColor=white" alt="Raspberry Pi" />
+                <img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white" alt="Arduino" />
+                <img src="https://img.shields.io/badge/PlatformIO-F5822A?style=for-the-badge&logo=platformio&logoColor=white" alt="PlatformIO" />
+                <img src="https://img.shields.io/badge/MQTT-660066?style=for-the-badge&logo=mqtt&logoColor=white" alt="MQTT" />
             </div>
         </div>
     </section>
 
     <!-- EXPERIENCIA -->
-    <section id="experiencia">
-        <h2 class="section-title">Experiencia profesional</h2>
-        <p class="section-subtitle">Historial completo de roles en ingeniería, desarrollo y soporte técnico.</p>
+    <section id="experiencia" class="reveal">
+        <div class="section-head">
+            <span class="section-num">§05</span>
+            <h2>Experiencia profesional</h2>
+            <span class="section-rule"></span>
+        </div>
 
-        <div class="experience-list">
+        <ol class="timeline">
+            <li class="tl-item">
+                <p class="tl-date">OCT 2024 — PRESENTE</p>
+                <h3>Ingeniero Desarrollador IA</h3>
+                <p class="tl-org">Práctica Independiente · Caracas, Venezuela</p>
+                <div class="tl-body">
+                    <p>Diseño, desarrollo y despliegue end-to-end de soluciones de IA aplicada y automatización
+                        orientadas a casos de negocio de PYMEs, validadas en producción sobre infraestructura propia
+                        (GCP, Debian, Docker).</p>
+                    <ul>
+                        <li>Sistema de automatización con IA para reportes PDF operacionales — n8n, PostgreSQL, OpenRouter API, entrega por email vía Resend, desplegado en GCP.</li>
+                        <li>Plataforma web tipo chatbot IA multimodelo autoalojada — VPC de red, NGINX, SSL, hardening (UFW, Fail2Ban).</li>
+                        <li>Dashboard ejecutivo de analítica para el dominio asegurador — Google Looker Studio, validación de datos con Python/PostgreSQL.</li>
+                        <li>Frontend de plataforma de reserva de boletos de cine — Next.js 16, TypeScript, React Server Components, mapa de asientos interactivo.</li>
+                        <li>Paquete de arquitectura IoT para sistema de control hidropónico (SmartCrops) — diagramas C4 completos, especificación de requerimientos y decisiones de diseño.</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="tl-item">
+                <p class="tl-date">MAYO 2024 — SEP 2024</p>
+                <h3>Ingeniero de Soluciones IoT</h3>
+                <p class="tl-org">Soluciones Administrativas Cobremex, C.A. · Caracas, Venezuela</p>
+                <div class="tl-body">
+                    <p>Lideré la propuesta técnica y el diseño arquitectónico para un sistema IoT de control de acceso
+                        vehicular integrado con la plataforma de peajes existente de la compañía.</p>
+                    <ul>
+                        <li>Definí la infraestructura IoT, los protocolos de comunicación y la estrategia de integración cloud.</li>
+                        <li>Entregué documentación técnica y el plano arquitectónico para validación e implementación futura.</li>
+                        <li>Recomendaciones de escalabilidad, monitoreo remoto e interoperabilidad de datos para un nuevo vertical de negocio de estacionamientos inteligentes.</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="tl-item">
+                <p class="tl-date">FEB 2024 — MAYO 2024</p>
+                <h3>Ingeniero de Hardware</h3>
+                <p class="tl-org">Anyware Venezuela, C.A. · Caracas, Venezuela</p>
+                <div class="tl-body">
+                    <p>Desarrollé y mantuve sistemas de hardware embebido para controladores de estacionamiento
+                        inteligente, asegurando comunicación confiable y rendimiento en despliegues de campo.</p>
+                    <ul>
+                        <li>Diseñé una PCB tipo HAT personalizada para un controlador de estacionamiento basado en Raspberry Pi.</li>
+                        <li>Mantenimiento correctivo y diagnóstico de hardware/red en sitios de clientes.</li>
+                        <li>Colaboré con equipos técnicos para mejorar la estabilidad del sistema y la integración hardware-software.</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="tl-item">
+                <p class="tl-date">FEB 2023 — FEB 2024</p>
+                <h3>Ingeniero de Hardware</h3>
+                <p class="tl-org">Paytech Corporation, C.A. · Caracas, Venezuela</p>
+                <div class="tl-body">
+                    <p>Lideré y coordiné las operaciones de soporte técnico para el producto "PagoDirecto", gestionando
+                        solicitudes de servicio del CTO, Operaciones y Clientes.</p>
+                    <ul>
+                        <li>Organicé y supervisé actividades de soporte técnico de campo para asegurar mantenimiento oportuno y confiabilidad.</li>
+                        <li>Responsable de la funcionalidad operativa de tarjetas controladoras basadas en ESP32 para clientes nacionales.</li>
+                        <li>Contribuí clave en el rediseño completo del hardware a tecnología SMD, habilitando ensamblaje profesional, producción en masa y menor costo.</li>
+                        <li>Diseñé la arquitectura de hardware para un nuevo prototipo de solución LTE/GSM para telemetría inalámbrica.</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="tl-item">
+                <p class="tl-date">NOV 2021 — DIC 2022</p>
+                <h3>Ingeniero de Servicio de Campo</h3>
+                <p class="tl-org">Thermo Fisher Scientific Venezuela · Caracas, Venezuela</p>
+                <div class="tl-body">
+                    <p>Mantenimiento preventivo y correctivo para sistemas de Microscopía Electrónica de Barrido y
+                        Transmisión (SEM/TEM), para clientes nacionales e internacionales en Latinoamérica.</p>
+                    <ul>
+                        <li>Diagnósticos en sitio y remotos, instalación y mantenimiento de equipos de laboratorio de alta precisión.</li>
+                        <li>Lideré el proyecto de instalación de un microscopio electrónico de barrido para un cliente universitario en Brasil.</li>
+                        <li>Operaciones de mantenimiento en Panamá y República Dominicana; entrenamiento avanzado en Chile.</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="tl-item">
+                <p class="tl-date">ENE 2020 — OCT 2021</p>
+                <h3>Ingeniero de Soporte IT</h3>
+                <p class="tl-org">Contratista Independiente · Caracas, Venezuela</p>
+                <div class="tl-body">
+                    <p>Mantenimiento preventivo y correctivo para computadoras y periféricos, configuración de redes y
+                        optimización de estaciones de trabajo para clientes individuales y pequeñas oficinas.</p>
+                    <ul>
+                        <li>Diagnóstico y resolución de fallas de software y hardware.</li>
+                        <li>Diseño, configuración e instalación de redes LAN/WLAN.</li>
+                        <li>Ensamblaje, actualizaciones y ajuste de rendimiento de estaciones de trabajo de alto rendimiento.</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="tl-item">
+                <p class="tl-date">SEP 2019 — DIC 2019</p>
+                <h3>Ingeniero de Servicio en Campo</h3>
+                <p class="tl-org">Corporación Audvintech, C.A. · Caracas, Venezuela (clientes LATAM)</p>
+                <div class="tl-body">
+                    <p>Mantenimiento preventivo semestral de salas de servidores multimedia de videoconferencia
+                        corporativa para cliente bancario en oficinas de Bogotá, Quito, Lima y Puerto España.</p>
+                    <ul>
+                        <li>Inspecciones técnicas y calibración de sistemas de comunicación audiovisual.</li>
+                        <li>Sesiones de capacitación para clientes corporativos y analistas IT.</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="tl-item">
+                <p class="tl-date">ENE 2016 — MAYO 2016</p>
+                <h3>Ingeniero de Sistemas Embebidos — Pasantía</h3>
+                <p class="tl-org">Venezolana de Electrónica, C.A. · Caracas, Venezuela</p>
+                <div class="tl-body">
+                    <p>Pasantía profesional a tiempo completo en una empresa de desarrollo de hardware B2B.</p>
+                    <ul>
+                        <li>Investigación de tecnologías, selección de componentes y evaluación de protocolos de comunicación.</li>
+                        <li>Interpretación de esquemas, ensamblaje de prototipos y pruebas de hardware.</li>
+                        <li>Programación, pruebas y depuración de firmware en C para microcontroladores PIC.</li>
+                    </ul>
+                </div>
+            </li>
+        </ol>
+    </section>
 
-            <!-- Soporte Técnico IT actual -->
-            <article class="exp-item">
-                <div class="exp-title">Soporte Técnico IT · Guayas Tech Solutions</div>
-                <p class="exp-meta">Julio 2025 - Diciembre (6 meses) · Daule, Guayas, Ecuador</p>
-                <p class="exp-meta"><strong>Industria:</strong> Servicios IT, Soporte Técnico, Servicios Gestionados.</p>
-                <p class="exp-summary">
-                    Brindar soporte IT bajo demanda y servicios de infraestructura para pequeñas y medianas empresas, oficinas y clientes individuales.
-                    Me encargo de diagnóstico de hardware y software, configuración de redes básicas y optimización de equipos y estaciones de trabajo.
-                    También ayudo a implementar soluciones cloud ligeras y prácticas para necesidades reales de pequeños negocios.
-                    Mantengo una relación directa con los usuarios, explicando soluciones de forma clara y orientada a la operación diaria.
+    <!-- EDUCACION -->
+    <section id="educacion" class="reveal">
+        <div class="section-head">
+            <span class="section-num">§06</span>
+            <h2>Educación</h2>
+            <span class="section-rule"></span>
+        </div>
+        <div class="edu-grid">
+            <div class="edu-card">
+                <h3>Universidad Nueva Esparta</h3>
+                <p class="edu-date">Graduado en 2018</p>
+                <p>Ingeniero Electrónico · Caracas, Venezuela</p>
+            </div>
+            <div class="thesis-card">
+                <div class="stack-label">Tesis de pregrado · Feb 2018 – Nov 2018</div>
+                <h3>Sistema Autónomo de Monitoreo y Control de Cultivos Indoor</h3>
+                <p>
+                    Un prototipo funcional de hardware, firmware y aplicación móvil para el monitoreo automatizado de
+                    cultivos indoor. Un microcontrolador PIC18F2550 ejecuta firmware determinista en C para riego,
+                    iluminación, aireación y regulación de temperatura/humedad, leyendo un sensor DHT11 y accionando
+                    actuadores mediante lógica de control personalizada. Un protocolo Bluetooth a medida transmite
+                    telemetría hacia una aplicación Android complementaria ("SmartGrowth", construida en MIT App
+                    Inventor). Es el predecesor conceptual del posterior proyecto de arquitectura hidropónica SmartCrops,
+                    desarrollado unos siete años después.
                 </p>
-            </article>
-
-            <!-- Arquitecto de Soluciones IoT - Consultor -->
-            <article class="exp-item">
-                <div class="exp-title">Arquitecto de Soluciones IoT · Consultor Independiente</div>
-                <p class="exp-meta">Octubre 2024 - Marzo 2025 (6 meses) · Caracas, Distrito Federal, Venezuela</p>
-                <p class="exp-meta"><strong>Industria:</strong> Agrotech, Hidroponía Inteligente, IoT.</p>
-                <p class="exp-summary">
-                    Diseñé el plano arquitectónico para una solución agrícola basada en IoT, definiendo componentes del sistema,
-                    flujos de datos y puntos de integración para una futura implementación escalable.
-                </p>
-                <ul class="exp-points">
-                    <li>Arquitectura de alto y bajo nivel para nodos sensores (ESP32), API backend, ingestión de datos e interfaces de visualización.</li>
-                    <li>Documentación de modelos de comunicación, estructuras de datos y patrones de interacción cloud–edge.</li>
-                    <li>Definición de estándares de escalabilidad, diseño modular y estructura de repositorios para fases de desarrollo.</li>
-                    <li>Entrega de documentación técnica cubriendo diseño funcional, lógica de integración y guías de implementación.</li>
-                </ul>
-            </article>
-
-            <!-- Ingeniero de Soluciones IoT - Cobremex -->
-            <article class="exp-item">
-                <div class="exp-title">Ingeniero de Soluciones IoT · Soluciones Administrativas Cobremex, C.A.</div>
-                <p class="exp-meta">Mayo 2024 - Septiembre 2024 (5 meses) · Caracas, Venezuela</p>
-                <p class="exp-meta"><strong>Industria:</strong> Peajes y Transporte · Control de Acceso Vehicular.</p>
-                <p class="exp-summary">
-                    Lideré la propuesta técnica y diseño arquitectónico para un sistema IoT de control de acceso vehicular
-                    integrado con la plataforma de peajes existente.
-                </p>
-                <ul class="exp-points">
-                    <li>Definición de infraestructura IoT, protocolos de comunicación y estrategia de integración en la nube.</li>
-                    <li>Elaboración de documentación técnica y plano arquitectónico para su validación e implementación futura.</li>
-                    <li>Recomendaciones de escalabilidad, monitoreo remoto e interoperabilidad de datos para un nuevo vertical de negocio.</li>
-                </ul>
-            </article>
-
-            <!-- Anyware -->
-            <article class="exp-item">
-                <div class="exp-title">Ingeniero de Hardware Embebido · Anyware Venezuela, C.A.</div>
-                <p class="exp-meta">Marzo 2024 - Mayo 2024 (3 meses) · Caracas, Venezuela</p>
-                <p class="exp-meta"><strong>Industria:</strong> Sistemas de Estacionamiento Inteligente.</p>
-                <p class="exp-summary">
-                    Desarrollé y mantuve sistemas de hardware embebido para controladores de estacionamiento inteligente,
-                    asegurando comunicación confiable y rendimiento en campo.
-                </p>
-                <ul class="exp-points">
-                    <li>Diseño de PCB tipo HAT personalizada para controladores basados en Raspberry Pi.</li>
-                    <li>Mantenimiento correctivo y diagnóstico de hardware y red en sitios de clientes.</li>
-                    <li>Colaboración con equipos de software para mejorar estabilidad e integración hardware–software.</li>
-                </ul>
-            </article>
-
-            <!-- Paytech -->
-            <article class="exp-item">
-                <div class="exp-title">Ingeniero de Hardware Embebido · Paytech Corporation C.A.</div>
-                <p class="exp-meta">Febrero 2023 - Febrero 2024 (1 año 1 mes) · Caracas, Venezuela</p>
-                <p class="exp-meta"><strong>Industria:</strong> Fintech · Soluciones de pago · Estacionamientos.</p>
-                <p class="exp-summary">
-                    Lideré y coordiné las operaciones de soporte técnico para el sistema de control de estacionamientos PagoDirecto,
-                    gestionando actividades en campo, rediseño de hardware y soporte de ingeniería.
-                </p>
-                <ul class="exp-points">
-                    <li>Organización y supervisión de soporte técnico de campo, garantizando continuidad operativa.</li>
-                    <li>Responsable de tarjetas controladoras basadas en ESP32 y su desempeño en clientes nacionales.</li>
-                    <li>Gestión de inventario y adquisición de componentes electrónicos a nivel nacional e internacional.</li>
-                    <li>Participación clave en el rediseño de controladoras a tecnología SMD, mejorando producción y confiabilidad.</li>
-                    <li>Diseño preliminar de arquitectura para telemetría LTE/GSM para nuevos productos.</li>
-                </ul>
-            </article>
-
-            <!-- Thermo Fisher -->
-            <article class="exp-item">
-                <div class="exp-title">Ingeniero de Servicio de Campo · Thermo Fisher Scientific Venezuela</div>
-                <p class="exp-meta">Noviembre 2021 - Diciembre 2022 (1 año 2 meses) · Caracas, Venezuela</p>
-                <p class="exp-meta"><strong>Industria:</strong> Instrumentación científica · Microscopía electrónica.</p>
-                <p class="exp-summary">
-                    Brindé mantenimiento preventivo y correctivo para sistemas de microscopía electrónica (SEM/TEM) y equipos
-                    auxiliares, en clientes nacionales e internacionales.
-                </p>
-                <ul class="exp-points">
-                    <li>Diagnóstico en sitio y remoto, instalación y mantenimiento de equipos de laboratorio de alta precisión.</li>
-                    <li>Diseño de layouts de instalación en AutoCAD e informes técnicos.</li>
-                    <li>Gestión de logística y repuestos para clientes en distintos países de LATAM.</li>
-                    <li>Participación en proyectos de instalación y entrenamiento técnico para clientes.</li>
-                </ul>
-            </article>
-
-            <!-- Soporte IT independiente -->
-            <article class="exp-item">
-                <div class="exp-title">Soporte Técnico IT · Consultor Independiente</div>
-                <p class="exp-meta">Enero 2020 - Octubre 2021 (1 año 10 meses) · Caracas, Venezuela</p>
-                <p class="exp-meta"><strong>Industria:</strong> Servicios IT · Redes · Hardware de computadoras.</p>
-                <p class="exp-summary">
-                    Proporcioné mantenimiento preventivo y correctivo para computadoras y periféricos,
-                    diseñé redes LAN/WLAN para hogares y pequeñas oficinas y optimicé PCs de alto rendimiento para distintos usos.
-                </p>
-                <ul class="exp-points">
-                    <li>Diagnóstico y resolución de fallas de hardware y software.</li>
-                    <li>Configuración de redes cableadas e inalámbricas.</li>
-                    <li>Ensambles, upgrades y optimización de estaciones de trabajo.</li>
-                    <li>Elaboración de informes técnicos de incidentes y mantenimientos.</li>
-                </ul>
-            </article>
-
-            <!-- Audvintech -->
-            <article class="exp-item">
-                <div class="exp-title">Ingeniero de Servicios Multimedia · Corporación Audvintech C.A.</div>
-                <p class="exp-meta">Septiembre 2019 - Diciembre 2019 (4 meses) · Caracas, Venezuela</p>
-                <p class="exp-meta"><strong>Industria:</strong> Infraestructura IT · Sistemas audiovisuales · Videoconferencia.</p>
-                <p class="exp-summary">
-                    Realicé mantenimiento de salas multimedia de videoconferencia en oficinas regionales y brindé soporte técnico
-                    a equipos audiovisuales corporativos.
-                </p>
-                <ul class="exp-points">
-                    <li>Inspecciones técnicas y calibración de sistemas audiovisuales.</li>
-                    <li>Capacitación básica a usuarios y equipos IT de clientes.</li>
-                    <li>Soporte para mantener estándares de calidad audiovisual y conectividad.</li>
-                </ul>
-            </article>
-
-            <!-- Venezolana de Electrónica -->
-            <article class="exp-item">
-                <div class="exp-title">Ingeniero de Sistemas Embebidos (Proyecto Tesis) · Venezolana de Electrónica S.R.L.</div>
-                <p class="exp-meta">Noviembre 2015 - Marzo 2017 (1 año 5 meses, medio tiempo) · Caracas, Venezuela</p>
-                <p class="exp-meta"><strong>Industria:</strong> Desarrollo de hardware · Robótica · Automatización.</p>
-                <p class="exp-summary">
-                    Participé en el desarrollo de un prototipo de robot autónomo de transporte ligero,
-                    integrando prototipado de hardware y conceptos de programación embebida.
-                </p>
-                <ul class="exp-points">
-                    <li>Aplicación de principios de robótica, diseño digital y sistemas de control.</li>
-                    <li>Trabajo en equipo en entornos de ingeniería aplicada.</li>
-                    <li>Experiencia práctica en diseño y pruebas de sistemas embebidos.</li>
-                </ul>
-            </article>
-
-            <!-- Pasantía Embedded -->
-            <article class="exp-item">
-                <div class="exp-title">Ingeniero de Sistemas Embebidos (Pasantía) · Empresa de Desarrollo de Hardware</div>
-                <p class="exp-meta">Enero 2016 - Mayo 2016 (5 meses) · Caracas, Venezuela</p>
-                <p class="exp-meta"><strong>Industria:</strong> Servicios de Desarrollo de Hardware.</p>
-                <p class="exp-summary">
-                    Pasantía orientada a investigación de tecnologías, selección de componentes y desarrollo de prototipos
-                    de sistemas embebidos.
-                </p>
-                <ul class="exp-points">
-                    <li>Revisión de artículos técnicos y selección de tecnologías aplicables.</li>
-                    <li>Diseño y prueba de prototipos electrónicos y firmware en C.</li>
-                    <li>Uso de herramientas EDA para esquemáticos y PCB.</li>
-                </ul>
-            </article>
-
-            <!-- Inversiones Resansil -->
-            <article class="exp-item">
-                <div class="exp-title">Asistente de Documentación de Procesos · Inversiones Resansil C.A.</div>
-                <p class="exp-meta">Junio 2010 - Agosto 2010 (3 meses) · Caracas, Venezuela</p>
-                <p class="exp-meta"><strong>Industria:</strong> Maquinaria de construcción civil.</p>
-                <p class="exp-summary">
-                    Apoyé en la elaboración y organización de procedimientos operativos y manuales internos para diferentes
-                    departamentos, mejorando la claridad en los flujos de trabajo.
-                </p>
-                <ul class="exp-points">
-                    <li>Colaboración con áreas de negocio para documentar procesos.</li>
-                    <li>Soporte en estructuración de manuales y guías.</li>
-                </ul>
-            </article>
+                <div class="thesis-tags">
+                    <span>PIC18F2550</span><span>Firmware C</span><span>Bluetooth HC-05</span><span>MIT App Inventor</span><span>Proteus</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- CURSOS Y CERTIFICACIONES -->
-    <section id="cursos">
-    <h2 class="section-title">Cursos y certificaciones</h2>
-    <p class="section-subtitle">Formación complementaria relevante.</p>
-
-    <div class="courses-card">
-        <ul class="courses-list">
-
-            <li>Certificado de Inglés C2 – EF SET (Abril, 2025)</li>
-            <li>Curso de Introducción a la Gestión de Proyectos – Colegio de Ingenieros de Venezuela</li>
-            <li>Curso de Diseño 2D con AutoCAD – Abstract Training Center</li>
-            <li>Curso de Introducción Práctica a Python – Platzi Inc USA</li>
-            <li>Certificado de Inglés Profesional – Platzi USA</li>
-            <li>Certificado de Atención al Cliente – CIAP Universidad Católica Andrés Bello</li>
-            <li>Certificado A/V Systems Associate – Extron Electronics US</li>
-            <li>Curso de Introducción a Redes CCNA – Muelles de Alejandría</li>
-            <li>Certificado de Inglés B2 como Lengua Extranjera – Centro Venezolano Americano</li>
-
-        </ul>
-    </div>
-</section>
+    <!-- CURSOS -->
+    <section id="cursos" class="reveal">
+        <div class="section-head">
+            <span class="section-num">§07</span>
+            <h2>Cursos y certificaciones</h2>
+            <span class="section-rule"></span>
+        </div>
+        <div class="courses-grid">
+            <div class="courses-col">
+                <h4>Idiomas</h4>
+                <ul>
+                    <li>Certificado de Inglés C2 — EF SET (abril 2025)</li>
+                    <li>Inglés Profesional — Platzi USA</li>
+                    <li>Inglés B2 como Lengua Extranjera — Centro Venezolano Americano</li>
+                </ul>
+            </div>
+            <div class="courses-col">
+                <h4>Gestión y Atención al Cliente</h4>
+                <ul>
+                    <li>Introducción a la Gestión de Proyectos — Colegio de Ingenieros de Venezuela</li>
+                    <li>Atención al Cliente — CIAP, Universidad Católica Andrés Bello</li>
+                </ul>
+            </div>
+            <div class="courses-col">
+                <h4>Técnicos</h4>
+                <ul>
+                    <li>Diseño 2D con AutoCAD — Abstract Training Center</li>
+                    <li>Introducción Práctica a Python — Platzi Inc. USA</li>
+                    <li>A/V Systems Associate — Extron Electronics US</li>
+                    <li>Introducción a Redes I (CCNA) — CISCO VE</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <!-- CONTACTO -->
-    <section id="contacto">
-        <h2 class="section-title">Contacto</h2>
-        <p class="section-subtitle">
-            Disponible para oportunidades en Ingeniería, Desarrollo y roles técnicos de alto impacto.
-        </p>
-
-        <div class="contact-tags">
-            <span class="contact-tag">Remoto / Híbrido / Presencial</span>
-            <span class="contact-tag">LATAM & Internacional</span>
-            <span class="contact-tag">IoT · Cloud · Embebidos · IA · Soporte Técnico</span>
+    <section id="contacto" class="reveal">
+        <div class="section-head">
+            <span class="section-num">§08</span>
+            <h2>Contacto</h2>
+            <span class="section-rule"></span>
         </div>
-
-        <div class="hero-actions" style="justify-content:center;">
-            <a class="btn btn-primary"
-               href="mailto:ladinesmiguel770@gmail.com?subject=Contacto%20Profesional%20-%20Miguel%20Ladines">
-                Enviar correo
-            </a>
-            <a class="btn btn-ghost" href="https://linkedin.com/in/ladinesmiguel" target="_blank" rel="noreferrer">
-                Conectar en LinkedIn
-            </a>
-            <a class="btn btn-ghost" href="cv/cv-miguel-ladines-eng.pdf" target="_blank" rel="noreferrer">
-                Descargar CV (Inglés)</a>
+        <div class="footer-contact">
+            <p>Abierto a roles remotos, híbridos o presenciales, por contrato o tiempo completo — solapamiento horario completo con EE.UU.</p>
+            <div class="btn-row" style="justify-content:center;">
+                <a class="btn btn-fill" href="mailto:ladinesmiguel770@gmail.com?subject=Contacto%20Profesional%20-%20Miguel%20Ladines">Enviar correo</a>
+                <a class="btn" href="https://linkedin.com/in/ladinesmiguel" target="_blank" rel="noreferrer">Conectar en LinkedIn</a>
+                <a class="btn" href="cv/cv-miguel-ladines-eng.pdf" target="_blank" rel="noreferrer">Descargar CV (Inglés)</a>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>© <span id="year"></span> Miguel Ladines. Todos los derechos reservados.</p>
-        <p>Esta página está alojada en GitHub Pages. <a href="https://github.com/dev-mikel" target="_blank" rel="noreferrer">Repositorio</a></p>
+        <div class="masthead-row">
+            <span>© <span id="year"></span> MIGUEL LADINES</span>
+            <span>ALOJADO EN <a href="https://github.com/dev-mikel" target="_blank" rel="noreferrer">GITHUB PAGES</a></span>
+        </div>
     </footer>
 </div>
 
 <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    } else {
+        document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
+    }
 </script>
 </body>
 </html>
