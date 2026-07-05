@@ -1,42 +1,98 @@
+<h1 align="center">👋 Hi, I'm Miguel Ladines</h1>
+<p align="center"><em>AI Engineer · LLM Integration · Business Automation · Cloud Infrastructure</em></p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/📍-Caracas,_Venezuela-0B1F33?style=for-the-badge" alt="Location: Caracas, Venezuela" />
+  <img src="https://img.shields.io/badge/Open_to-Remote_%7C_Hybrid_%7C_On--site-brightgreen?style=for-the-badge" alt="Open to work" />
+  <img src="https://img.shields.io/badge/Languages-Spanish_(Native)_%C2%B7_English_(C2)-0a66c2?style=for-the-badge" alt="Native Spanish, C2 English" />
+</p>
+<p align="center">
+  <a href="https://linkedin.com/in/ladinesmiguel"><img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logoColor=white" alt="LinkedIn" /></a>
+  <a href="mailto:ladinesmiguel770@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+  <a href="https://dev-mikel.github.io/dev-mikel/profile-english.html"><img src="https://img.shields.io/badge/Portfolio-Website-1E2A38?style=for-the-badge&logo=githubpages&logoColor=white" alt="Portfolio Website" /></a>
+  <a href="https://dev-mikel.github.io/dev-mikel/cv/cv-miguel-ladines-eng.pdf"><img src="https://img.shields.io/badge/Resume-Download_CV_(EN)-0a66c2?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Download CV" /></a>
+</p>
+
+---
+
 ## 👋 About me
 
-Electronics Engineer with multidisciplinary experience and skills, having worked professionally across industries such as IT consulting, corporate banking, scientific research, intelligent transportation infrastructure, and agricultural technology.
+Bilingual Electronics Engineer (Spanish/English C2) with 5+ years of experience in IT consulting, corporate IT infrastructure, scientific research, intelligent transportation, and banking, in both employee and independent roles across Latin America. That multi-domain background shaped a systems-first approach: I think in terms of architecture, from the data layer to the business layer, and design accordingly, always weighing what a decision costs or saves the business, not just whether it works technically.
 
-Throughout my career, I have developed valuable capabilities in systems integration, automation, cloud infrastructure, and technological architecture, participating in projects where reliability, scalability, and interoperability are essential.
+**💼 What I focus on**
+- **LLM Integration**: multi-model AI platforms, self-hosted and API-based, taken from prototype to cloud deployment and validated end-to-end.
+- **Automation**: workflow orchestration and reporting pipelines built to fail safely, with automatic validation and retries instead of silent errors.
+- **Cloud & DevOps**: containerized deployment and infrastructure as code, with every component validated on deployment, not assumed to work.
+- **AI-assisted development**: I use native AI tools (Claude Code) as part of my daily development workflow.
 
-My approach combines cross-domain technical knowledge and systems thinking, enabling the integration of hardware, software, and cloud services into efficient, secure, and future-ready technological architectures.
+**🛠️ How I work**
+- **Architecture in writing before code**: scoped, documented decisions so any team member can maintain the system, not just me.
+- **LLM output is untrusted until proven otherwise**: generated content passes deterministic checks — format assertions, schema validation, retries with backoff — before anything ships.
+- **Pipelines fail closed, not open**: health checks block a pipeline from advancing on integrity failures — row counts, referential checks, access rules — instead of letting bad data reach a dashboard.
+- **Reproducible by default**: containerized, version-pinned configs that behave identically across dev, staging, and production — no "works on my machine."
+- **Honest scope**: explicit about what's a prototype and what's in production, without claiming results I can't back up.
 
-Working in national and international contexts has taught me to value adaptability and technical coherence. I view technology as a living ecosystem, where innovation and stability must coexist, evolving in service of people and processes.
+📍 Caracas, Venezuela (UTC-4, full overlap with US business hours) · Open to independent remote, hybrid or on-site work.
 
-### 💼 What I Bring
+## 🚀 Featured projects
 
-- System-level thinking: the ability to connect devices, data, and infrastructure into coherent, maintainable, and scalable ecosystems.
+| Project | Description |
+|---|---|
+| [**salesreport-automation**](https://github.com/dev-mikel/salesreport-automation) | Self-hosted reporting pipeline — n8n orchestration, PostgreSQL analytics, AI narrative generation, deterministic PDF rendering with retries and backoff. |
+| [**ai-multimodel-chatbot**](https://github.com/dev-mikel/ai-multimodel-chatbot) | Self-hosted multi-model AI chatbot on GCP — OpenWebUI behind hardened NGINX/Docker, pay-per-token access to OpenAI, Anthropic, xAI and DeepInfra via OpenRouter. |
+| [**insurance-analytics**](https://github.com/dev-mikel/insurance-analytics) | End-to-end data pipeline for a synthetic insurance portfolio — star schema, row-level security on Supabase, four Looker Studio dashboards. |
+| [**goldenmovies-webapp**](https://github.com/dev-mikel/goldenmovies-webapp) | Bilingual cinema booking experience — Next.js 16, React 19 Server Components, interactive seat map, typed API layer with rate limiting. |
+| [**agrotech-controlsystem**](https://github.com/dev-mikel/agrotech-controlsystem) | Local-first IoT architecture for hydroponic control — six C4 diagrams, FSR/SAD/ADRs, an ICS/SCADA-style one-way trust boundary to the cloud. |
 
-- Cross-domain experience: exposure to scientific, corporate, and operational environments that demand reliability, precision, and adaptability.
+## 💻 Tech stack
 
-- Hands-on engineering mindset: from embedded design and data flow modeling to infrastructure management and process optimization.
+**Languages & Web**<br/>
+<img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white" alt="C" />
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+<img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="JavaScript" />
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css&logoColor=white" alt="CSS3" />
+<img src="https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" alt="Bash" />
 
-- Analytical and pragmatic approach: focusing on traceability, efficiency, and measurable operational outcomes.
+**AI & LLM**<br/>
+<img src="https://img.shields.io/badge/Claude_Code-D97757?style=for-the-badge&logo=claude&logoColor=white" alt="Claude Code" />
+<img src="https://img.shields.io/badge/OpenAI_API-412991?style=for-the-badge" alt="OpenAI API" />
+<img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face" />
+<img src="https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white" alt="Ollama" />
+<img src="https://img.shields.io/badge/OpenRouter-EA4B71?style=for-the-badge&logo=openrouter&logoColor=white" alt="OpenRouter" />
 
-- Continuous evolution: expanding into data, backend, and AI-driven systems to deliver end-to-end technological value.
+**Backend & Frameworks**<br/>
+<img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+<img src="https://img.shields.io/badge/Fastify-000000?style=for-the-badge&logo=fastify&logoColor=white" alt="Fastify" />
+<img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
+<img src="https://img.shields.io/badge/React-149ECA?style=for-the-badge&logo=react&logoColor=white" alt="React" />
+<img src="https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+<img src="https://img.shields.io/badge/n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white" alt="n8n" />
 
-## 🌐 Socials:
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/ladinesmiguel) 
-[![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:ladinesmiguel770@gmail.com) 
-[![Website](https://img.shields.io/badge/Website-%231E2A38.svg?logo=githubpages&logoColor=white)](https://dev-mikel.github.io/dev-mikel/profile-english.html)
+**Cloud & DevOps**<br/>
+<img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+<img src="https://img.shields.io/badge/Ansible-EE0000?style=for-the-badge&logo=ansible&logoColor=white" alt="Ansible" />
+<img src="https://img.shields.io/badge/NGINX-009639?style=for-the-badge&logo=nginx&logoColor=white" alt="NGINX" />
+<img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Google Cloud" />
+<img src="https://img.shields.io/badge/DigitalOcean-0167FF?style=for-the-badge&logo=digitalocean&logoColor=white" alt="DigitalOcean" />
+<img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
+<img src="https://img.shields.io/badge/Git-F05033?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
+<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+<img src="https://img.shields.io/badge/WireGuard-88171A?style=for-the-badge&logo=wireguard&logoColor=white" alt="WireGuard" />
+<img src="https://img.shields.io/badge/Tailscale-242424?style=for-the-badge&logo=tailscale&logoColor=white" alt="Tailscale" />
 
-# 💻 Tech Stack:
-![C](https://img.shields.io/badge/c-%2300599C.svg?style=flat&logo=c&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=flat&logo=css3&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=flat&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E) ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=flat&logo=markdown&logoColor=white) ![PowerShell](https://img.shields.io/badge/PowerShell-%235391FE.svg?style=flat&logo=powershell&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54) ![Bash Script](https://img.shields.io/badge/bash_script-%23121011.svg?style=flat&logo=gnu-bash&logoColor=white) ![Windows Terminal](https://img.shields.io/badge/Windows%20Terminal-%234D4D4D.svg?style=flat&logo=windows-terminal&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=flat&logo=amazon-aws&logoColor=white) ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=flat&logo=Cloudflare&logoColor=white) ![DigitalOcean](https://img.shields.io/badge/DigitalOcean-%230167ff.svg?style=flat&logo=digitalOcean&logoColor=white) ![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=flat&logo=google-cloud&logoColor=white) ![Oracle](https://img.shields.io/badge/Oracle-F80000?style=flat&logo=oracle&logoColor=white) ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=flat&logo=npm&logoColor=white) ![Next JS](https://img.shields.io/badge/Next-black?style=flat&logo=next.js&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=flat&logo=node.js&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=flat&logo=react&logoColor=%2361DAFB) ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=flat&logo=SASS&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=flat&logo=tailwind-css&logoColor=white) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=flat&logo=vite&logoColor=white) ![WordPress](https://img.shields.io/badge/WordPress-%23117AC9.svg?style=flat&logo=WordPress&logoColor=white) ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=flat&logo=nginx&logoColor=white) ![Firebase](https://img.shields.io/badge/firebase-a08021?style=flat&logo=firebase&logoColor=ffcd34) ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=flat&logo=mariadb&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=flat&logo=mongodb&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=flat&logo=mysql&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=flat&logo=postgresql&logoColor=white) ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=flat&logo=redis&logoColor=white) ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=flat&logo=sqlite&logoColor=white) ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=flat&logo=Prisma&logoColor=white) ![Adobe Illustrator](https://img.shields.io/badge/adobe%20illustrator-%23FF9A00.svg?style=flat&logo=adobe%20illustrator&logoColor=white) ![Adobe Photoshop](https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=flat&logo=adobe%20photoshop&logoColor=white) ![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=flat&logo=Canva&logoColor=white) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=flat&logo=figma&logoColor=white) ![Gimp](https://img.shields.io/badge/Gimp-657D8B?style=flat&logo=gimp&logoColor=FFFFFF) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=flat&logo=github&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=flat&logo=git&logoColor=white) ![Bitbucket](https://img.shields.io/badge/bitbucket-%230047B3.svg?style=flat&logo=bitbucket&logoColor=white) ![Arduino](https://img.shields.io/badge/-Arduino-00979D?style=flat&logo=Arduino&logoColor=white) ![Bitwarden](https://img.shields.io/badge/bitwarden-%23175DDC.svg?style=flat&logo=bitwarden&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white) ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=flat&logo=eslint&logoColor=white) ![Jira](https://img.shields.io/badge/jira-%230A0FFF.svg?style=flat&logo=jira&logoColor=white) ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=flat&logo=notion&logoColor=white) ![OpenAPI Specification](https://img.shields.io/badge/openapiinitiative-%23000000.svg?style=flat&logo=openapiinitiative&logoColor=white) ![PlatformIO](https://img.shields.io/badge/PlatformIO-%23222.svg?style=flat&logo=platformio&logoColor=%23f5822a) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=flat&logo=postman&logoColor=white) ![Prettier](https://img.shields.io/badge/prettier-%23F7B93E.svg?style=flat&logo=prettier&logoColor=black) ![Raspberry Pi](https://img.shields.io/badge/-Raspberry_Pi-C51A4A?style=flat&logo=Raspberry-Pi) ![TOR](https://img.shields.io/badge/tor-%237E4798.svg?style=flat&logo=tor-project&logoColor=white) ![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=flat&logo=Trello&logoColor=white) ![Wireguard](https://img.shields.io/badge/wireguard-%2388171A.svg?style=flat&logo=wireguard&logoColor=white) ![XFCE](https://img.shields.io/badge/XFCE-%232284F2.svg?style=flat&logo=xfce&logoColor=white)
+**Databases**<br/>
+<img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+<img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+<img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB" />
+<img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
+<img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis" />
+<img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
 
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=dev-mikel&theme=default_repocard&hide_border=true&include_all_commits=false&count_private=false)<br/>
-![](https://nirzak-streak-stats.vercel.app/?user=dev-mikel&theme=default_repocard&hide_border=true)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=dev-mikel&theme=default_repocard&hide_border=true&include_all_commits=false&count_private=false&layout=compact)
-
-### ✍️ Random Dev Quote
-![](https://quotes-github-readme.vercel.app/api?type=vetical&theme=light)
-
-### 🔝 Top Contributed Repo
-![](https://github-contributor-stats.vercel.app/api?username=dev-mikel&limit=5&theme=default_repocard&combine_all_yearly_contributions=true)
-
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+**Embedded & IoT**<br/>
+<img src="https://img.shields.io/badge/ESP32-E7352C?style=for-the-badge&logo=espressif&logoColor=white" alt="ESP32" />
+<img src="https://img.shields.io/badge/Raspberry_Pi-C51A4A?style=for-the-badge&logo=raspberrypi&logoColor=white" alt="Raspberry Pi" />
+<img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white" alt="Arduino" />
+<img src="https://img.shields.io/badge/PlatformIO-F5822A?style=for-the-badge&logo=platformio&logoColor=white" alt="PlatformIO" />
+<img src="https://img.shields.io/badge/MQTT-660066?style=for-the-badge&logo=mqtt&logoColor=white" alt="MQTT" />
